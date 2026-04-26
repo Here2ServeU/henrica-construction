@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Henrica Construction — Construire avec Confiance, Bâtir pour l'Avenir</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23162347'/%3E%3Cpath d='M16 14h6v15h20V14h6v36h-6V35H22v15h-6z' fill='%23f47920'/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+:root{
+  --navy:#162347;--navy2:#1e2f5c;--navy3:#0e1830;
+  --orange:#f47920;--orange2:#e86c10;--orange3:#ffa040;
+  --white:#fff;--muted:#8b9ab0;--border:rgba(255,255,255,.08);
+}
+body{font-family:'Outfit',sans-serif;background:var(--navy3);color:var(--white);overflow-x:hidden;}
+
+/* ── Logo ─────────── */
+.li{height:36px;width:auto;filter:brightness(0) invert(1);display:block;transition:filter .25s;}
+.li-sm{height:26px;width:auto;filter:brightness(0) invert(1);display:block;}
+.li-xs{height:18px;width:auto;filter:brightness(0) invert(1);display:block;}
+.lf-hero{max-width:200px;width:100%;filter:brightness(0) invert(1);display:block;margin:0 auto;}
+.lf-why{max-width:150px;width:100%;filter:brightness(0) invert(1);display:block;}
+.lf-login{max-width:130px;width:100%;filter:brightness(0) invert(1);display:block;margin:0 auto;}
+.nav-brand:hover .li{filter:brightness(0) saturate(100%) invert(56%) sepia(95%) saturate(504%) hue-rotate(355deg) brightness(103%) contrast(93%);}
+
+/* ── Badges ────────── */
+.badge-link{display:inline-flex;cursor:pointer;transition:opacity .2s,transform .2s;text-decoration:none;}
+.badge-link:hover{opacity:.85;transform:translateY(-2px);}
+.badge-img{height:42px;width:auto;display:block;border-radius:6px;}
+.badge-link-lg{display:inline-flex;cursor:pointer;transition:opacity .2s,transform .2s;text-decoration:none;}
+.badge-link-lg:hover{opacity:.85;transform:translateY(-2px);}
+.badge-img-lg{height:50px;width:auto;display:block;border-radius:8px;}
+
+/* ── App Store / Google Play badges ─── */
+.app-badge{display:inline-flex;align-items:center;gap:10px;background:#000;color:#fff;padding:8px 16px;border-radius:8px;border:1px solid rgba(255,255,255,.18);font-family:'Outfit',sans-serif;cursor:pointer;transition:all .2s;text-decoration:none;line-height:1;}
+.app-badge:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,.45);border-color:var(--orange);}
+.app-badge svg{flex-shrink:0;display:block;}
+.app-badge .ab-txt{display:flex;flex-direction:column;gap:2px;text-align:left;}
+.app-badge .ab-txt small{font-size:9px;opacity:.85;letter-spacing:.4px;text-transform:none;font-weight:400;}
+.app-badge .ab-txt strong{font-size:15px;font-weight:600;letter-spacing:.3px;}
+.app-badge.sm{padding:6px 12px;gap:8px;}
+.app-badge.sm svg{width:18px;height:18px;}
+.app-badge.sm .ab-txt small{font-size:8px;}
+.app-badge.sm .ab-txt strong{font-size:12px;}
+
+/* ── Lang ──────────── */
+.lt{display:flex;align-items:center;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.14);border-radius:6px;overflow:hidden;}
+.lb{font-size:11px;font-weight:700;letter-spacing:1.5px;padding:7px 13px;border:none;cursor:pointer;font-family:'Outfit',sans-serif;background:transparent;color:var(--muted);transition:all .2s;}
+.lb.active{background:var(--orange);color:var(--white);}
+.lb:hover:not(.active){color:var(--white);}
+
+/* ── Nav ───────────── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:70px;background:rgba(14,24,48,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-brand{display:flex;align-items:center;gap:12px;cursor:pointer;border:none;background:none;padding:0;}
+.nav-name{font-weight:800;font-size:15px;color:var(--white);line-height:1.15;text-align:left;}
+.nav-name small{display:block;font-size:9px;letter-spacing:3px;font-weight:600;color:var(--orange);margin-top:1px;}
+.nav-links{display:flex;gap:28px;}
+.nl{font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;transition:color .2s;background:none;border:none;font-family:'Outfit',sans-serif;}
+.nl:hover{color:var(--white);}
+.nav-r{display:flex;align-items:center;gap:10px;}
+.bo{font-size:12px;font-weight:600;padding:9px 17px;background:transparent;border:1.5px solid var(--orange);color:var(--orange);cursor:pointer;transition:all .2s;border-radius:3px;font-family:'Outfit',sans-serif;}
+.bo:hover{background:var(--orange);color:var(--white);}
+.bs{font-size:12px;font-weight:700;padding:9px 17px;background:var(--orange);color:var(--white);border:none;cursor:pointer;transition:all .2s;border-radius:3px;font-family:'Outfit',sans-serif;}
+.bs:hover{background:var(--orange2);transform:translateY(-1px);}
+
+/* ── Mobile Menu ─── */
+.mhamb{display:none;align-items:center;justify-content:center;width:38px;height:38px;background:transparent;border:1.5px solid var(--border);border-radius:6px;color:var(--white);cursor:pointer;font-size:18px;padding:0;transition:all .2s;}
+.mhamb:hover{border-color:var(--orange);color:var(--orange);}
+.mhamb-line{display:block;width:18px;height:2px;background:currentColor;border-radius:2px;position:relative;transition:all .25s;}
+.mhamb-line::before,.mhamb-line::after{content:'';position:absolute;left:0;width:18px;height:2px;background:currentColor;border-radius:2px;transition:all .25s;}
+.mhamb-line::before{top:-6px;}.mhamb-line::after{top:6px;}
+.mhamb.open .mhamb-line{background:transparent;}
+.mhamb.open .mhamb-line::before{top:0;transform:rotate(45deg);}
+.mhamb.open .mhamb-line::after{top:0;transform:rotate(-45deg);}
+.mdrawer{display:none;position:fixed;top:70px;left:0;right:0;bottom:0;background:rgba(14,24,48,.98);backdrop-filter:blur(20px);z-index:999;flex-direction:column;padding:24px;overflow-y:auto;animation:fdown .25s ease;}
+.mdrawer.open{display:flex;}
+.mdrawer .mdr-link{padding:16px 4px;border-bottom:1px solid var(--border);font-size:16px;font-weight:500;color:var(--white);text-align:left;background:none;border-top:none;border-left:none;border-right:none;cursor:pointer;font-family:'Outfit',sans-serif;transition:padding-left .2s,color .2s;}
+.mdrawer .mdr-link:hover{padding-left:10px;color:var(--orange);}
+.mdrawer .mdr-actions{display:flex;flex-direction:column;gap:10px;margin-top:24px;}
+.mdrawer .mdr-actions .bo,.mdrawer .mdr-actions .bs{width:100%;text-align:center;justify-content:center;padding:14px;font-size:14px;}
+.mdrawer .mdr-lang{display:flex;justify-content:center;margin-top:18px;}
+@keyframes fdown{from{opacity:0;transform:translateY(-12px);}to{opacity:1;transform:translateY(0);}}
+
+/* ── Views ─────────── */
+.view{display:none;min-height:100vh;}.view.active{display:block;}
+
+/* ── Hero ──────────── */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:70px;}
+.hbg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 75% 50%,rgba(244,121,32,.13) 0%,transparent 60%),linear-gradient(160deg,var(--navy3) 0%,var(--navy) 55%,var(--navy3) 100%);}
+.hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(244,121,32,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(244,121,32,.04) 1px,transparent 1px);background-size:72px 72px;}
+.hstripe{position:absolute;right:0;top:0;width:42%;height:100%;background:linear-gradient(160deg,rgba(244,121,32,.06) 0%,transparent 80%);border-left:1px solid rgba(244,121,32,.08);}
+.hcontent{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:56px;padding:60px 72px;width:100%;}
+.htag{display:inline-flex;align-items:center;gap:10px;background:rgba(244,121,32,.12);border:1px solid rgba(244,121,32,.3);padding:7px 18px;border-radius:100px;margin-bottom:20px;animation:fup .8s ease both;}
+.htag-dot{width:6px;height:6px;border-radius:50%;background:var(--orange);animation:pulse 2s infinite;}
+.htag-txt{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--orange);}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(40px,5.2vw,68px);font-weight:800;line-height:1.06;color:var(--white);animation:fup .8s .1s ease both;}
+.hero h1 em{font-style:italic;color:var(--orange);font-weight:600;}
+.htagline{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-top:12px;animation:fup .8s .15s ease both;}
+.hdesc{font-size:15px;font-weight:300;line-height:1.75;color:rgba(255,255,255,.65);max-width:440px;margin-top:16px;animation:fup .8s .2s ease both;}
+.hctas{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:28px;animation:fup .8s .25s ease both;}
+.bhp{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;padding:14px 28px;border:none;cursor:pointer;border-radius:3px;transition:all .25s;font-family:'Outfit',sans-serif;}
+.bhp:hover{background:var(--orange2);transform:translateY(-2px);box-shadow:0 14px 36px rgba(244,121,32,.35);}
+.bhs{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--white);font-size:13px;font-weight:600;padding:13px 24px;border:1.5px solid rgba(255,255,255,.2);cursor:pointer;border-radius:3px;transition:all .25s;font-family:'Outfit',sans-serif;}
+.bhs:hover{border-color:var(--white);background:rgba(255,255,255,.06);}
+.hero-badge-row{display:flex;gap:12px;align-items:center;margin-top:22px;animation:fup .8s .3s ease both;flex-wrap:wrap;}
+.hright{display:flex;flex-direction:column;gap:18px;animation:fup .8s .35s ease both;}
+.logo-card{background:rgba(255,255,255,.04);border:1px solid rgba(244,121,32,.22);border-radius:16px;padding:28px 32px;text-align:center;position:relative;overflow:hidden;}
+.logo-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(244,121,32,.08),transparent 70%);pointer-events:none;}
+.logo-card img{position:relative;z-index:1;}
+.logo-tagbadge{display:inline-block;margin-top:14px;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--orange);background:rgba(244,121,32,.1);padding:5px 14px;border-radius:100px;border:1px solid rgba(244,121,32,.2);}
+.hstats{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.hstat{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:18px;transition:all .2s;}
+.hstat:hover{border-color:rgba(244,121,32,.35);transform:translateY(-2px);}
+.hstat-v{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;color:var(--orange);line-height:1;}
+.hstat-l{font-size:10px;color:var(--muted);margin-top:5px;}
+.hcontact{background:rgba(244,121,32,.07);border:1px solid rgba(244,121,32,.17);border-radius:10px;padding:16px 20px;display:flex;flex-direction:column;gap:8px;}
+.hcc-t{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--orange);margin-bottom:2px;}
+.hcc-r{display:flex;align-items:center;gap:9px;font-size:12px;color:rgba(255,255,255,.75);}
+
+/* ── Stats bar ───────── */
+.sbar{background:var(--navy);border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:grid;grid-template-columns:repeat(4,1fr);}
+.sbar-i{padding:26px 22px;border-right:1px solid var(--border);transition:background .2s;cursor:default;}
+.sbar-i:hover{background:rgba(244,121,32,.05);}
+.sbar-i:last-child{border:none;}
+.sbar-n{font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:var(--orange);line-height:1;}
+.sbar-l{font-size:10px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:5px;}
+
+/* ── Sections ─────────── */
+section{padding:86px 72px;scroll-margin-top:70px;}
+.sec-lbl{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:14px;}
+.sec-lbl::before{content:'';width:28px;height:2px;background:var(--orange);}
+.sec-ttl{font-family:'Playfair Display',serif;font-size:clamp(30px,4vw,52px);font-weight:700;line-height:1.1;color:var(--white);}
+.sec-ttl em{font-style:italic;color:var(--orange);font-weight:600;}
+
+/* ── Services ───────── */
+.svc-sec{background:var(--navy);}
+.svc-hdr{margin-bottom:46px;}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.05);}
+.svc{background:var(--navy);padding:30px 26px;position:relative;overflow:hidden;cursor:pointer;transition:background .3s;}
+.svc:hover{background:rgba(244,121,32,.06);}
+.svc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--orange3));transform:scaleX(0);transform-origin:left;transition:transform .4s;}
+.svc:hover::after{transform:scaleX(1);}
+.svc-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--orange);letter-spacing:1px;margin-bottom:14px;}
+.svc-icon{font-size:26px;margin-bottom:12px;display:block;}
+.svc-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--white);margin-bottom:9px;line-height:1.2;}
+.svc-desc{font-size:13px;line-height:1.7;color:var(--muted);}
+.svc-arr{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--orange);margin-top:16px;opacity:0;transition:opacity .2s;}
+.svc:hover .svc-arr{opacity:1;}
+
+/* ── Projects ── REAL PHOTOS ─────────────────────────────────────────────── */
+.proj-sec{background:var(--navy3);}
+.proj-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:34px;gap:20px;flex-wrap:wrap;}
+.bghost{font-size:13px;font-weight:600;padding:11px 20px;background:transparent;color:var(--orange);border:1.5px solid var(--orange);cursor:pointer;border-radius:3px;transition:all .2s;font-family:'Outfit',sans-serif;}
+.bghost:hover{background:var(--orange);color:var(--white);}
+.pgrid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;}
+.proj{overflow:hidden;cursor:pointer;transition:transform .3s,box-shadow .3s;border-radius:8px;position:relative;background:var(--navy);}
+.proj:hover{transform:translateY(-5px);box-shadow:0 20px 48px rgba(0,0,0,.4);}
+.proj.big{grid-column:span 8;}.proj.med{grid-column:span 4;}.proj.sml{grid-column:span 4;}
+.proj-photo{width:100%;overflow:hidden;position:relative;}
+.proj.big .proj-photo{height:300px;}.proj.med .proj-photo,.proj.sml .proj-photo{height:180px;}
+.proj-photo img{width:100%;height:100%;object-fit:cover;transition:transform .5s;display:block;}
+.proj:hover .proj-photo img{transform:scale(1.06);}
+.proj-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(244,121,32,.75) 0%,rgba(244,121,32,.1) 60%,transparent 100%);opacity:0;transition:opacity .35s;z-index:2;display:flex;align-items:flex-end;justify-content:center;padding-bottom:20px;}
+.proj:hover .proj-ov{opacity:1;}
+.ov-btn{background:var(--white);color:var(--navy);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:9px 22px;border:none;cursor:pointer;border-radius:100px;}
+.proj-info{padding:14px 18px 16px;background:var(--navy);position:relative;z-index:1;}
+.proj-cat{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:4px;}
+.proj-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:var(--white);}
+.proj-dets{display:flex;gap:13px;margin-top:4px;}
+.proj-det{font-size:11px;color:var(--muted);}
+
+/* ── Why ─────────── */
+.why-sec{background:var(--navy);}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.why-vis{position:relative;background:var(--navy3);border:1px solid var(--border);border-radius:12px;aspect-ratio:4/5;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.why-vis-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+.why-vis-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,24,48,.35) 0%,rgba(14,24,48,.15) 40%,rgba(14,24,48,.78) 100%);}
+.why-vis-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(244,121,32,.08),transparent 70%);}
+.why-logo-c{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:12px;padding:20px;}
+.why-b{position:absolute;bottom:22px;right:22px;background:var(--orange);padding:12px 17px;border-radius:8px;z-index:2;box-shadow:0 12px 30px rgba(0,0,0,.35);}
+.why-b-v{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--white);}
+.why-b-l{font-size:9px;color:rgba(255,255,255,.8);letter-spacing:1px;}
+.why-b2{position:absolute;top:22px;left:22px;background:rgba(14,24,48,.7);border:1px solid rgba(255,255,255,.12);padding:10px 15px;border-radius:6px;z-index:2;backdrop-filter:blur(6px);}
+.why-b2-v{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--orange);}
+.why-b2-l{font-size:9px;color:var(--muted);}
+.why-feats{display:flex;flex-direction:column;}
+.why-feat{display:flex;gap:15px;padding:19px 0;border-bottom:1px solid var(--border);transition:padding-left .25s;}
+.why-feat:hover{padding-left:8px;}
+.why-feat:first-child{padding-top:0;}
+.why-feat-ic{width:40px;height:40px;flex-shrink:0;border-radius:8px;background:rgba(244,121,32,.1);border:1px solid rgba(244,121,32,.2);display:flex;align-items:center;justify-content:center;font-size:17px;}
+.why-feat-ttl{font-size:15px;font-weight:600;color:var(--white);margin-bottom:5px;}
+.why-feat-dsc{font-size:13px;line-height:1.6;color:var(--muted);}
+
+/* ── Testimonials ─── */
+.testi-sec{background:var(--navy3);}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:42px;}
+.testi{background:var(--navy);border:1px solid var(--border);padding:24px;border-radius:6px;position:relative;overflow:hidden;transition:border-color .3s;}
+.testi:hover{border-color:rgba(244,121,32,.35);}
+.testi-mark{position:absolute;top:16px;right:20px;font-family:'Playfair Display',serif;font-size:60px;font-weight:700;color:rgba(244,121,32,.07);line-height:1;}
+.testi-stars{color:var(--orange);font-size:12px;margin-bottom:11px;}
+.testi-quote{font-size:14px;line-height:1.7;color:rgba(255,255,255,.8);font-style:italic;margin-bottom:17px;}
+.testi-auth{display:flex;align-items:center;gap:10px;}
+.tav{width:36px;height:36px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--white);}
+.tname{font-size:13px;font-weight:600;color:var(--white);}
+.trole{font-size:11px;color:var(--muted);}
+
+/* ── App section ────── */
+.app-sec{background:var(--navy);display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.app-content{padding:78px 72px;}
+.app-vis{background:var(--navy3);border-left:1px solid var(--border);display:flex;align-items:center;justify-content:center;padding:48px;position:relative;overflow:hidden;}
+.app-vis::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(244,121,32,.1),transparent 70%);}
+.phone{width:192px;background:var(--navy3);border:2px solid rgba(255,255,255,.1);border-radius:28px;padding:13px 10px;box-shadow:0 48px 96px rgba(0,0,0,.5);position:relative;z-index:1;}
+.ph-pill{width:50px;height:5px;background:rgba(255,255,255,.08);border-radius:3px;margin:0 auto 11px;}
+.ph-body{background:var(--navy);border-radius:18px;padding:13px;min-height:300px;}
+.ph-sb{display:flex;justify-content:space-between;font-size:8px;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-bottom:11px;}
+.ph-logo{display:flex;align-items:center;gap:5px;margin-bottom:11px;}
+.ph-logo img{height:13px;filter:brightness(0) invert(1);}
+.ph-logo-n{font-size:9px;font-weight:700;color:var(--white);}
+.ph-sec{font-size:8px;text-transform:uppercase;letter-spacing:1px;color:var(--orange);margin-bottom:7px;}
+.ph-proj{background:rgba(244,121,32,.08);border:1px solid rgba(244,121,32,.15);border-radius:5px;overflow:hidden;margin-bottom:7px;}
+.ph-proj-img{width:100%;height:52px;object-fit:cover;display:block;}
+.ph-proj-body{padding:6px 7px;}
+.ph-proj-n{font-size:8px;font-weight:600;color:var(--white);margin-bottom:4px;}
+.ph-prog{height:3px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden;margin-bottom:3px;}
+.ph-fill{height:100%;background:var(--orange);border-radius:2px;}
+.ph-pct{font-size:8px;color:var(--orange);font-family:'JetBrains Mono',monospace;}
+.ph-notif{background:var(--navy2);border-radius:5px;padding:7px;margin-top:9px;}
+.ph-nlbl{font-size:7px;text-transform:uppercase;letter-spacing:1px;color:var(--orange);margin-bottom:3px;}
+.ph-ntxt{font-size:8px;color:rgba(255,255,255,.6);line-height:1.4;}
+.app-feats{display:flex;flex-direction:column;gap:10px;margin-top:24px;}
+.af{display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,.75);}
+.af::before{content:'✓';color:var(--orange);font-weight:700;}
+.app-badge-row{display:flex;gap:12px;align-items:center;margin-top:30px;flex-wrap:wrap;}
+
+/* ── CTA ─────────── */
+.cta-sec{text-align:center;padding:92px 72px;background:linear-gradient(160deg,var(--navy2),var(--navy3));position:relative;overflow:hidden;}
+.cta-sec::before{content:'HENRICA';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Playfair Display',serif;font-size:160px;font-weight:800;color:rgba(244,121,32,.03);pointer-events:none;white-space:nowrap;}
+.cta-desc{font-size:15px;color:var(--muted);max-width:480px;margin:12px auto 30px;line-height:1.7;}
+.cta-acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:42px;max-width:840px;margin-left:auto;margin-right:auto;}
+.ccard{background:rgba(255,255,255,.04);border:1px solid var(--border);padding:21px;border-radius:6px;transition:border-color .2s;}
+.ccard:hover{border-color:rgba(244,121,32,.3);}
+.ccard-icon{font-size:21px;margin-bottom:9px;}
+.ccard-lbl{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--orange);margin-bottom:5px;}
+.ccard-val{font-size:13px;font-weight:500;color:var(--white);line-height:1.6;}
+
+/* ── Quote Modal ──── */
+.moverlay{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:2000;display:none;align-items:center;justify-content:center;padding:20px;}
+.moverlay.open{display:flex;}
+.modal{background:var(--navy);border:1px solid var(--border);border-radius:10px;max-width:480px;width:100%;padding:34px;position:relative;}
+.mclose{position:absolute;top:16px;right:16px;background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;transition:color .2s;}
+.mclose:hover{color:var(--white);}
+.mttl{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--white);margin-bottom:5px;}
+.msub{font-size:13px;color:var(--muted);margin-bottom:22px;}
+.fg{margin-bottom:14px;}
+.fg label{display:block;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.fg input,.fg select,.fg textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);padding:11px 13px;font-size:14px;color:var(--white);font-family:'Outfit',sans-serif;outline:none;border-radius:4px;transition:border-color .2s;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:rgba(244,121,32,.5);}
+.fg select option{background:var(--navy);}
+.fg textarea{resize:vertical;min-height:76px;}
+.fsubmit{width:100%;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:13px;border:none;cursor:pointer;border-radius:4px;transition:all .2s;font-family:'Outfit',sans-serif;margin-top:6px;}
+.fsubmit:hover{background:var(--orange2);}
+.fsuccess{text-align:center;padding:24px 0;display:none;}
+.fsuccess-icon{font-size:44px;margin-bottom:12px;}
+.fsuccess h3{font-family:'Playfair Display',serif;font-size:21px;color:var(--white);margin-bottom:7px;}
+.fsuccess p{font-size:14px;color:var(--muted);}
+
+/* ── Footer ──────── */
+footer{background:var(--navy3);border-top:1px solid var(--border);padding:48px 72px 26px;}
+.ft-top{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid var(--border);}
+.ft-brand{display:flex;align-items:center;gap:11px;margin-bottom:10px;}
+.ft-brand-name{font-weight:800;font-size:15px;color:var(--white);}
+.ft-brand-name em{color:var(--orange);font-style:normal;}
+.ft-tag{font-size:13px;color:var(--muted);line-height:1.7;max-width:240px;font-style:italic;}
+.ft-col-ttl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:13px;}
+.fl{display:block;font-size:13px;color:var(--muted);text-decoration:none;margin-bottom:8px;cursor:pointer;background:none;border:none;font-family:'Outfit',sans-serif;text-align:left;transition:color .2s;padding:0;}
+.fl:hover{color:var(--white);}
+.ft-bot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;}
+.ft-copy{font-size:12px;color:var(--muted);}
+.ft-soc{display:flex;gap:10px;}
+.socbtn{width:34px;height:34px;border-radius:6px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;transition:all .2s;background:none;color:var(--white);}
+.socbtn:hover{border-color:var(--orange);background:rgba(244,121,32,.1);}
+
+/* ── Login ────────── */
+.login-view.active{min-height:100vh;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 30% 50%,rgba(244,121,32,.08),transparent 60%),var(--navy3);position:relative;overflow:hidden;padding-top:70px;}
+.login-view::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(244,121,32,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(244,121,32,.04) 1px,transparent 1px);background-size:60px 60px;}
+.lbox{background:var(--navy);border:1px solid var(--border);width:100%;max-width:410px;padding:42px 36px;border-radius:10px;position:relative;z-index:1;}
+.lbrand{text-align:center;margin-bottom:20px;display:flex;flex-direction:column;align-items:center;gap:8px;}
+.lbrand-name{font-weight:800;font-size:16px;color:var(--white);}
+.lbrand-name em{color:var(--orange);font-style:normal;}
+.lttl{font-size:17px;font-weight:600;color:var(--white);text-align:center;margin-bottom:6px;}
+.lsub{font-size:13px;color:var(--muted);text-align:center;margin-bottom:24px;}
+.lf{margin-bottom:14px;}
+.lf label{display:block;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:7px;}
+.lf input{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);padding:11px 13px;font-size:14px;color:var(--white);font-family:'Outfit',sans-serif;outline:none;border-radius:4px;transition:border-color .2s;}
+.lf input:focus{border-color:rgba(244,121,32,.5);}
+.lsubmit{width:100%;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-transform:uppercase;padding:13px;border:none;cursor:pointer;border-radius:4px;margin-top:7px;transition:all .2s;font-family:'Outfit',sans-serif;}
+.lsubmit:hover{background:var(--orange2);}
+.lalt{text-align:center;margin-top:16px;font-size:12px;color:var(--muted);}
+.lalt a{color:var(--orange);text-decoration:none;cursor:pointer;}
+.lapp-row{margin-top:22px;padding-top:18px;border-top:1px solid var(--border);text-align:center;}
+.lapp-lbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+.lapp-bads{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+
+/* ── Portal ──────── */
+.ptbar{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 26px;height:62px;background:rgba(14,24,48,.96);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);}
+.ptb-l{display:flex;align-items:center;gap:16px;}
+.ptb-back{font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--orange);background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:'Outfit',sans-serif;transition:gap .2s;}
+.ptb-back:hover{gap:10px;}
+.ptb-sep{width:1px;height:18px;background:var(--border);}
+.ptb-greet{font-size:13px;color:var(--muted);}
+.ptb-greet strong{color:var(--white);}
+.ptb-r{display:flex;align-items:center;gap:10px;}
+.ptb-ic{width:33px;height:33px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;position:relative;transition:border-color .2s;}
+.ptb-ic:hover{border-color:var(--orange);}
+.ptb-dot{position:absolute;top:5px;right:5px;width:7px;height:7px;background:var(--orange);border-radius:50%;border:1px solid var(--navy3);}
+.ptb-av{width:33px;height:33px;background:var(--orange);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--white);cursor:pointer;}
+.playout{display:grid;grid-template-columns:216px 1fr;min-height:100vh;padding-top:62px;}
+.psb{background:var(--navy);border-right:1px solid var(--border);padding:16px 0;position:sticky;top:62px;height:calc(100vh - 62px);overflow-y:auto;}
+.psb-brand{padding:10px 16px 14px;border-bottom:1px solid var(--border);margin-bottom:10px;display:flex;flex-direction:column;gap:5px;}
+.psb-bn{font-weight:700;font-size:13px;color:var(--white);}
+.psb-bs{font-size:10px;color:var(--muted);}
+.psb-sec{padding:0 10px;margin-bottom:17px;}
+.psb-lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);padding:0 8px;margin-bottom:5px;}
+.pi{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:4px;font-size:12px;font-weight:500;color:var(--muted);cursor:pointer;transition:all .15s;margin-bottom:2px;border:none;background:none;width:100%;text-align:left;font-family:'Outfit',sans-serif;}
+.pi:hover{background:rgba(255,255,255,.04);color:var(--white);}
+.pi.active{background:rgba(244,121,32,.12);color:var(--orange);}
+.pbadge{margin-left:auto;background:var(--orange);color:var(--white);font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;}
+.pbadge.al{background:#ef4444;}
+.pmain{padding:24px;background:var(--navy3);}
+.ptab{display:none;}.ptab.active{display:block;}
+.pwel{background:linear-gradient(135deg,var(--navy2),var(--navy));border:1px solid var(--border);border-left:3px solid var(--orange);padding:15px 20px;border-radius:5px;margin-bottom:17px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
+.pwel-h{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--white);}
+.pwel-p{font-size:12px;color:var(--muted);margin-top:3px;}
+.pq{display:flex;gap:9px;flex-shrink:0;}
+.pqb{font-size:11px;font-weight:600;text-transform:uppercase;padding:8px 13px;border:none;cursor:pointer;border-radius:3px;transition:all .2s;font-family:'Outfit',sans-serif;}
+.pqb.pri{background:var(--orange);color:var(--white);}.pqb.sec{background:transparent;color:var(--white);border:1px solid var(--border);}
+.pqb:hover{opacity:.85;}
+.pkpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:17px;}
+.pkpi{background:var(--navy);border:1px solid var(--border);padding:13px 15px;border-radius:4px;border-top:2px solid var(--pkc,var(--orange));}
+.pkpi-l{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:7px;}
+.pkpi-v{font-family:'JetBrains Mono',monospace;font-size:19px;font-weight:500;color:var(--white);}
+.pkpi-s{font-size:10px;color:var(--muted);margin-top:3px;}
+.pprojs{display:flex;flex-direction:column;gap:10px;margin-bottom:17px;}
+.pproj{background:var(--navy);border:1px solid var(--border);padding:14px 18px;border-radius:4px;display:grid;grid-template-columns:1fr auto;gap:13px;align-items:center;cursor:pointer;transition:border-color .2s;}
+.pproj:hover{border-color:rgba(244,121,32,.3);}
+.pp-cat{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:3px;}
+.pp-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:var(--white);margin-bottom:7px;}
+.pp-pr{display:flex;align-items:center;gap:10px;}
+.pp-bar{flex:1;height:4px;background:rgba(255,255,255,.06);border-radius:2px;}
+.pp-fill{height:100%;background:var(--orange);border-radius:2px;}
+.pp-pct{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--orange);}
+.pp-meta{display:flex;gap:15px;margin-top:6px;}
+.pp-mi{font-size:11px;color:var(--muted);}
+.pp-st{padding:4px 11px;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border-radius:3px;}
+.pp-st.ac{background:rgba(34,197,94,.1);color:#22c55e;border:1px solid rgba(34,197,94,.2);}
+.pp-st.rv{background:rgba(244,121,32,.1);color:var(--orange);border:1px solid rgba(244,121,32,.2);}
+.pp-r{display:flex;flex-direction:column;align-items:flex-end;gap:9px;}
+.pp-view{font-size:11px;color:var(--orange);background:none;border:none;cursor:pointer;letter-spacing:1px;text-transform:uppercase;font-family:'Outfit',sans-serif;}
+.pp-view:hover{text-decoration:underline;}
+.ptwo{display:grid;grid-template-columns:1fr 305px;gap:13px;}
+.pcard{background:var(--navy);border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+.pcard-h{display:flex;justify-content:space-between;align-items:center;padding:11px 16px;border-bottom:1px solid var(--border);}
+.pcard-ttl{font-size:12px;font-weight:600;color:var(--white);}
+.pcard-act{font-size:11px;color:var(--orange);cursor:pointer;background:none;border:none;font-family:'Outfit',sans-serif;}
+.pcard-act:hover{text-decoration:underline;}
+.actfeed{padding:3px 0;}
+.acti{display:flex;gap:10px;padding:9px 15px;border-bottom:1px solid rgba(255,255,255,.02);}
+.acti:last-child{border:none;}
+.acti-dot{width:7px;height:7px;border-radius:50%;margin-top:4px;flex-shrink:0;}
+.acti-txt{font-size:12px;color:var(--white);line-height:1.5;}
+.acti-txt strong{color:var(--orange);font-weight:600;}
+.acti-time{font-size:10px;color:var(--muted);margin-top:2px;font-family:'JetBrains Mono',monospace;}
+.itbl{width:100%;border-collapse:collapse;}
+.itbl th{text-align:left;font-size:9px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);padding:8px 15px;border-bottom:1px solid var(--border);}
+.itbl td{padding:9px 15px;font-size:12px;border-bottom:1px solid rgba(255,255,255,.02);}
+.itbl tr:last-child td{border:none;}
+.itbl tr:hover td{background:rgba(255,255,255,.02);}
+.iref{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);}
+.iname{color:var(--white);font-weight:500;}
+.iamt{font-family:'JetBrains Mono',monospace;color:var(--white);font-weight:600;}
+.ipill{padding:2px 9px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-radius:3px;}
+.ipill.paid{background:rgba(34,197,94,.1);color:#22c55e;}
+.ipill.due{background:rgba(244,121,32,.1);color:var(--orange);}
+.ipay{font-size:10px;font-weight:700;padding:4px 11px;background:var(--orange);color:var(--white);border:none;cursor:pointer;border-radius:3px;font-family:'Outfit',sans-serif;transition:background .2s;}
+.ipay:hover{background:var(--orange2);}
+.dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:12px;}
+.dcard{background:var(--navy2);border:1px solid var(--border);padding:12px;cursor:pointer;transition:border-color .2s;border-radius:4px;}
+.dcard:hover{border-color:rgba(244,121,32,.3);}
+.dcard-icon{font-size:20px;margin-bottom:7px;}
+.dcard-name{font-size:12px;font-weight:600;color:var(--white);margin-bottom:3px;}
+.dcard-meta{font-size:10px;color:var(--muted);}
+.dbadge{font-size:9px;font-weight:700;padding:2px 7px;background:rgba(244,121,32,.1);color:var(--orange);border-radius:3px;margin-top:5px;display:inline-block;}
+.mlayout{display:grid;grid-template-columns:206px 1fr;height:450px;border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+.mlist{border-right:1px solid var(--border);overflow-y:auto;}
+.mprev{padding:11px 13px;border-bottom:1px solid rgba(255,255,255,.03);cursor:pointer;transition:background .15s;}
+.mprev.active,.mprev:hover{background:rgba(244,121,32,.07);}
+.mpn{font-size:12px;font-weight:600;color:var(--white);margin-bottom:2px;}
+.mpp{font-size:10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.mpu{width:7px;height:7px;background:var(--orange);border-radius:50%;float:right;margin-top:3px;}
+.mpt{font-size:9px;color:var(--muted);float:right;margin-left:6px;font-family:'JetBrains Mono',monospace;}
+.mthread{display:flex;flex-direction:column;}
+.mth{padding:10px 15px;border-bottom:1px solid var(--border);font-size:12px;font-weight:600;color:var(--white);}
+.mbody{flex:1;padding:12px 15px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;}
+.mb{max-width:80%;}.mb.them{align-self:flex-start;}.mb.me{align-self:flex-end;}
+.mc{padding:9px 13px;font-size:12px;line-height:1.5;border-radius:4px;}
+.mb.them .mc{background:var(--navy2);color:var(--white);}
+.mb.me .mc{background:rgba(244,121,32,.15);color:var(--white);border:1px solid rgba(244,121,32,.2);}
+.mt{font-size:9px;color:var(--muted);margin-top:3px;font-family:'JetBrains Mono',monospace;}
+.mb.me .mt{text-align:right;}
+.minput{display:flex;gap:7px;padding:10px 13px;border-top:1px solid var(--border);}
+.minp{flex:1;background:var(--navy2);border:1px solid var(--border);padding:9px 12px;font-size:12px;color:var(--white);font-family:'Outfit',sans-serif;outline:none;border-radius:4px;}
+.minp:focus{border-color:rgba(244,121,32,.4);}
+.msend{background:var(--orange);color:var(--white);font-size:11px;font-weight:700;letter-spacing:1px;padding:0 15px;border:none;cursor:pointer;border-radius:4px;font-family:'Outfit',sans-serif;transition:background .2s;}
+.msend:hover{background:var(--orange2);}
+.toast{position:fixed;bottom:26px;right:26px;z-index:9999;background:var(--navy);border:1px solid rgba(244,121,32,.4);border-left:3px solid var(--orange);padding:13px 18px;border-radius:6px;font-size:13px;color:var(--white);transform:translateY(80px);opacity:0;transition:all .3s;pointer-events:none;max-width:300px;}
+.toast.show{transform:translateY(0);opacity:1;}
+
+@keyframes fup{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+
+@media(max-width:960px){
+  nav{padding:0 18px;}.nav-links{display:none;}
+  .nav-r .lt,.nav-r .bo,.nav-r .bs{display:none;}
+  .mhamb{display:flex;}
+  section{padding:54px 20px;}
+  .hcontent{grid-template-columns:1fr;padding:28px 20px;}.hright{display:none;}
+  .sbar{grid-template-columns:repeat(2,1fr);}
+  .svc-grid{grid-template-columns:1fr;}
+  .pgrid{grid-template-columns:1fr;}.proj.big,.proj.med,.proj.sml{grid-column:span 1;}
+  .why-grid{grid-template-columns:1fr;}.why-vis{display:none;}
+  .testi-grid{grid-template-columns:1fr;}
+  .app-sec{grid-template-columns:1fr;}.app-vis{display:none;}
+  .ft-top{grid-template-columns:1fr 1fr;}
+  .playout{grid-template-columns:1fr;}.psb{display:none;}
+  .pkpis{grid-template-columns:repeat(2,1fr);}
+  .ptwo{grid-template-columns:1fr;}
+  .dgrid{grid-template-columns:repeat(2,1fr);}
+  .mlayout{grid-template-columns:1fr;}.mlist{display:none;}
+  .cgrid{grid-template-columns:1fr;}.cta-sec{padding:64px 22px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════ MARKETING / HOME VIEW ═══════════════════════════════════════════ -->
+<div class="view active" id="homeView">
+
+  <nav>
+    <button class="nav-brand" onclick="showHome()">
+      <img class="li" id="navLogo" alt="Henrica Construction">
+      <div class="nav-name">Henrica<em style="color:var(--orange);font-style:normal"> Construction</em><small data-i18n="nav.tag">CONSTRUIRE · BÂTIR · DURER</small></div>
+    </button>
+    <div class="nav-links">
+      <button class="nl" onclick="goTo('services')" data-i18n="nav.services">Services</button>
+      <button class="nl" onclick="goTo('projects')" data-i18n="nav.projects">Réalisations</button>
+      <button class="nl" onclick="goTo('why')" data-i18n="nav.why">Pourquoi Nous</button>
+      <button class="nl" onclick="goTo('testi')" data-i18n="nav.testi">Témoignages</button>
+      <button class="nl" onclick="goTo('app')" data-i18n="nav.app">Application</button>
+      <button class="nl" onclick="goTo('contact')" data-i18n="nav.contact">Contact</button>
+    </div>
+    <div class="nav-r">
+      <div class="lt">
+        <button class="lb active" onclick="setLang('fr')" data-lang="fr">FR</button>
+        <button class="lb" onclick="setLang('en')" data-lang="en">EN</button>
+      </div>
+      <button class="bo" onclick="showLogin()" data-i18n="nav.login">Connexion</button>
+      <button class="bs" onclick="openModal('qModal')" data-i18n="nav.quote">Devis Gratuit</button>
+      <button class="mhamb" id="mhamb" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false"><span class="mhamb-line"></span></button>
+    </div>
+  </nav>
+  <div class="mdrawer" id="mdrawer">
+    <button class="mdr-link" onclick="goTo('services');closeMenu()" data-i18n="nav.services">Services</button>
+    <button class="mdr-link" onclick="goTo('projects');closeMenu()" data-i18n="nav.projects">Réalisations</button>
+    <button class="mdr-link" onclick="goTo('why');closeMenu()" data-i18n="nav.why">Pourquoi Nous</button>
+    <button class="mdr-link" onclick="goTo('testi');closeMenu()" data-i18n="nav.testi">Témoignages</button>
+    <button class="mdr-link" onclick="goTo('app');closeMenu()" data-i18n="nav.app">Application</button>
+    <button class="mdr-link" onclick="goTo('contact');closeMenu()" data-i18n="nav.contact">Contact</button>
+    <div class="mdr-actions">
+      <button class="bo" onclick="showLogin();closeMenu()" data-i18n="nav.login">Connexion</button>
+      <button class="bs" onclick="openModal('qModal');closeMenu()" data-i18n="nav.quote">Devis Gratuit</button>
+    </div>
+    <div class="mdr-lang">
+      <div class="lt">
+        <button class="lb active" onclick="setLang('fr')" data-lang="fr">FR</button>
+        <button class="lb" onclick="setLang('en')" data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── HERO ────────────────────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hbg"></div><div class="hgrid"></div><div class="hstripe"></div>
+    <div class="hcontent">
+      <div class="hleft">
+        <div class="htag"><span class="htag-dot"></span><span class="htag-txt" data-i18n="hero.tag">RDC · KINSHASA · DEPUIS 2014</span></div>
+        <h1><span data-i18n="hero.h1a">Construire avec</span> <em data-i18n="hero.h1b">Confiance</em>,<br><span data-i18n="hero.h1c">Bâtir pour</span> <em data-i18n="hero.h1d">l'Avenir</em></h1>
+        <div class="htagline" data-i18n="hero.tagline">EXCELLENCE · INTÉGRITÉ · DURABILITÉ</div>
+        <p class="hdesc" data-i18n="hero.desc">De la fondation à la finition, Henrica Construction réalise vos projets résidentiels et commerciaux avec un savoir-faire reconnu, des matériaux de qualité et un engagement total envers nos clients.</p>
+        <div class="hctas">
+          <button class="bhp" onclick="openModal('qModal')" data-i18n="hero.cta1">Demander un Devis →</button>
+          <button class="bhs" onclick="goTo('projects')" data-i18n="hero.cta2">Voir Nos Réalisations</button>
+        </div>
+        <div class="hero-badge-row">
+          <a class="app-badge sm" onclick="downloadApp('ios')" role="button">
+            <svg viewBox="0 0 24 24" fill="white"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+            <span class="ab-txt"><small data-i18n="ab.ios.s">Télécharger sur</small><strong>App Store</strong></span>
+          </a>
+          <a class="app-badge sm" onclick="downloadApp('android')" role="button">
+            <svg viewBox="0 0 24 24"><path fill="#EA4335" d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92z"/><path fill="#FBBC04" d="M16.802 8.03l2.807 1.626a1 1 0 010 1.732l-2.807 1.626L14.5 12l2.302-3.97z"/><path fill="#4285F4" d="M14.5 12l-8.636 8.637 10.938-6.333L14.5 12z"/><path fill="#34A853" d="M5.864 1.696L16.802 8.03 14.5 10.333 5.864 1.696z"/></svg>
+            <span class="ab-txt"><small data-i18n="ab.and.s">Disponible sur</small><strong>Google Play</strong></span>
+          </a>
+        </div>
+      </div>
+      <div class="hright">
+        <div class="logo-card">
+          <svg class="lf-hero" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+            <text x="100" y="42" text-anchor="middle" font-family="Playfair Display,serif" font-weight="800" font-size="38" fill="white">HENRICA</text>
+            <text x="100" y="62" text-anchor="middle" font-family="Outfit,sans-serif" font-weight="600" font-size="9" letter-spacing="4" fill="white">CONSTRUCTION</text>
+            <line x1="60" y1="50" x2="80" y2="50" stroke="white" stroke-width="1.5"/>
+            <line x1="120" y1="50" x2="140" y2="50" stroke="white" stroke-width="1.5"/>
+          </svg>
+          <div class="logo-tagbadge" data-i18n="hero.badge">10 ans d'excellence</div>
+        </div>
+        <div class="hstats">
+          <div class="hstat"><div class="hstat-v">250+</div><div class="hstat-l" data-i18n="hero.s1">PROJETS LIVRÉS</div></div>
+          <div class="hstat"><div class="hstat-v">98%</div><div class="hstat-l" data-i18n="hero.s2">CLIENTS SATISFAITS</div></div>
+        </div>
+        <div class="hcontact">
+          <div class="hcc-t" data-i18n="hero.contact">CONTACT DIRECT</div>
+          <div class="hcc-r">📞 +243 976 760 093</div>
+          <div class="hcc-r">✉️ contact@henrica-construction.cd</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STATS BAR ─────────────────────────────────────────────────────────────── -->
+  <div class="sbar">
+    <div class="sbar-i"><div class="sbar-n">10+</div><div class="sbar-l" data-i18n="sbar.years">ANNÉES D'EXPÉRIENCE</div></div>
+    <div class="sbar-i"><div class="sbar-n">250+</div><div class="sbar-l" data-i18n="sbar.proj">PROJETS RÉALISÉS</div></div>
+    <div class="sbar-i"><div class="sbar-n">45</div><div class="sbar-l" data-i18n="sbar.team">PROFESSIONNELS</div></div>
+    <div class="sbar-i"><div class="sbar-n">9</div><div class="sbar-l" data-i18n="sbar.svc">DOMAINES D'EXPERTISE</div></div>
+  </div>
+
+  <!-- ── SERVICES ──────────────────────────────────────────────────────────────── -->
+  <section class="svc-sec" id="services">
+    <div class="svc-hdr">
+      <div class="sec-lbl" data-i18n="svc.lbl">NOS SERVICES</div>
+      <h2 class="sec-ttl"><span data-i18n="svc.ttl1">Une expertise</span> <em data-i18n="svc.ttl2">complète</em></h2>
+    </div>
+    <div class="svc-grid" id="svcGrid"></div>
+  </section>
+
+  <!-- ── PROJECTS ──────────────────────────────────────────────────────────────── -->
+  <section class="proj-sec" id="projects">
+    <div class="proj-hdr">
+      <div>
+        <div class="sec-lbl" data-i18n="proj.lbl">RÉALISATIONS</div>
+        <h2 class="sec-ttl"><span data-i18n="proj.ttl1">Nos projets</span> <em data-i18n="proj.ttl2">phares</em></h2>
+      </div>
+      <button class="bghost" onclick="toast(t('proj.toast'))" data-i18n="proj.all">Voir tout le portfolio →</button>
+    </div>
+    <div class="pgrid" id="projGrid"></div>
+  </section>
+
+  <!-- ── WHY ───────────────────────────────────────────────────────────────────── -->
+  <section class="why-sec" id="why">
+    <div class="why-grid">
+      <div class="why-vis">
+        <img class="why-vis-img" src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=900&q=80" alt="Henrica Construction team on site" loading="lazy">
+        <div class="why-vis-ov"></div>
+        <div class="why-b"><div class="why-b-v">10+</div><div class="why-b-l" data-i18n="why.b1">ANS</div></div>
+        <div class="why-b2"><div class="why-b2-v">98%</div><div class="why-b2-l" data-i18n="why.b2">SATISFACTION</div></div>
+      </div>
+      <div>
+        <div class="sec-lbl" data-i18n="why.lbl">POURQUOI HENRICA</div>
+        <h2 class="sec-ttl" style="margin-bottom:24px"><span data-i18n="why.ttl1">L'engagement</span> <em data-i18n="why.ttl2">qualité</em></h2>
+        <div class="why-feats" id="whyFeats"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ──────────────────────────────────────────────────────────── -->
+  <section class="testi-sec" id="testi">
+    <div style="text-align:center">
+      <div class="sec-lbl" style="justify-content:center" data-i18n="testi.lbl">TÉMOIGNAGES</div>
+      <h2 class="sec-ttl"><span data-i18n="testi.ttl1">Ils nous font</span> <em data-i18n="testi.ttl2">confiance</em></h2>
+    </div>
+    <div class="testi-grid" id="testiGrid"></div>
+  </section>
+
+  <!-- ── APP ───────────────────────────────────────────────────────────────────── -->
+  <section class="app-sec" id="app">
+    <div class="app-content">
+      <div class="sec-lbl" data-i18n="app.lbl">APPLICATION CLIENT</div>
+      <h2 class="sec-ttl"><span data-i18n="app.ttl1">Suivez votre projet</span> <em data-i18n="app.ttl2">en temps réel</em></h2>
+      <p class="hdesc" style="margin-top:16px;max-width:480px" data-i18n="app.desc">Notre portail client vous donne une visibilité totale : avancement des chantiers, factures, photos, messages avec votre chef de projet — partout, à tout moment.</p>
+      <div class="app-feats">
+        <div class="af" data-i18n="app.f1">Suivi de l'avancement chantier en photos</div>
+        <div class="af" data-i18n="app.f2">Factures et paiements sécurisés en ligne</div>
+        <div class="af" data-i18n="app.f3">Messagerie directe avec votre chef de projet</div>
+        <div class="af" data-i18n="app.f4">Accès à tous les documents du projet</div>
+      </div>
+      <div style="margin-top:30px;display:flex;gap:12px;flex-wrap:wrap">
+        <button class="bhp" onclick="showLogin()" data-i18n="app.cta">Accéder au Portail →</button>
+      </div>
+      <div class="app-badge-row">
+        <a class="app-badge" onclick="downloadApp('ios')" role="button">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+          <span class="ab-txt"><small data-i18n="ab.ios.s">Télécharger sur</small><strong>App Store</strong></span>
+        </a>
+        <a class="app-badge" onclick="downloadApp('android')" role="button">
+          <svg width="22" height="22" viewBox="0 0 24 24"><path fill="#EA4335" d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92z"/><path fill="#FBBC04" d="M16.802 8.03l2.807 1.626a1 1 0 010 1.732l-2.807 1.626L14.5 12l2.302-3.97z"/><path fill="#4285F4" d="M14.5 12l-8.636 8.637 10.938-6.333L14.5 12z"/><path fill="#34A853" d="M5.864 1.696L16.802 8.03 14.5 10.333 5.864 1.696z"/></svg>
+          <span class="ab-txt"><small data-i18n="ab.and.s">Disponible sur</small><strong>Google Play</strong></span>
+        </a>
+      </div>
+    </div>
+    <div class="app-vis">
+      <div class="phone">
+        <div class="ph-pill"></div>
+        <div class="ph-body">
+          <div class="ph-sb"><span>9:41</span><span>●●● ▮</span></div>
+          <div class="ph-logo">
+            <svg width="13" height="13" viewBox="0 0 64 64"><rect width="64" height="64" rx="10" fill="#162347"/><path d="M16 14h6v15h20V14h6v36h-6V35H22v15h-6z" fill="#f47920"/></svg>
+            <span class="ph-logo-n">HENRICA</span>
+          </div>
+          <div class="ph-sec" data-i18n="ph.sec">PROJET ACTIF</div>
+          <div class="ph-proj">
+            <img class="ph-proj-img" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&q=80" alt="">
+            <div class="ph-proj-body">
+              <div class="ph-proj-n" data-i18n="ph.name">Villa Gombe — Lot 12</div>
+              <div class="ph-prog"><div class="ph-fill" style="width:67%"></div></div>
+              <div class="ph-pct">67%</div>
+            </div>
+          </div>
+          <div class="ph-notif">
+            <div class="ph-nlbl" data-i18n="ph.notif">DERNIÈRE MISE À JOUR</div>
+            <div class="ph-ntxt" data-i18n="ph.notif.txt">Coulage dalle R+1 terminé. 24 nouvelles photos disponibles.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA / CONTACT ─────────────────────────────────────────────────────────── -->
+  <section class="cta-sec" id="contact">
+    <div class="sec-lbl" style="justify-content:center" data-i18n="cta.lbl">DÉMARREZ AUJOURD'HUI</div>
+    <h2 class="sec-ttl" style="max-width:720px;margin:0 auto"><span data-i18n="cta.ttl1">Votre projet,</span> <em data-i18n="cta.ttl2">notre engagement</em></h2>
+    <p class="cta-desc" data-i18n="cta.desc">Parlons de votre projet. Devis gratuit, visite sur site, accompagnement de A à Z.</p>
+    <div class="cta-acts">
+      <button class="bhp" onclick="openModal('qModal')" data-i18n="cta.cta1">Demander un Devis</button>
+      <a href="tel:+243976760093" class="bhs" style="text-decoration:none">📞 +243 976 760 093</a>
+    </div>
+    <div class="cgrid">
+      <div class="ccard"><div class="ccard-icon">📞</div><div class="ccard-lbl" data-i18n="cta.c1">TÉLÉPHONE</div><div class="ccard-val">+243 976 760 093</div></div>
+      <div class="ccard"><div class="ccard-icon">✉️</div><div class="ccard-lbl" data-i18n="cta.c2">EMAIL</div><div class="ccard-val">contact@henrica-construction.cd</div></div>
+      <div class="ccard"><div class="ccard-icon">📍</div><div class="ccard-lbl" data-i18n="cta.c3">SIÈGE</div><div class="ccard-val" data-i18n="cta.c3v">Av. de la Paix, Gombe<br>Kinshasa, RDC</div></div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ────────────────────────────────────────────────────────────────── -->
+  <footer>
+    <div class="ft-top">
+      <div>
+        <div class="ft-brand">
+          <svg width="32" height="32" viewBox="0 0 64 64"><rect width="64" height="64" rx="8" fill="#162347" stroke="#f47920" stroke-width="1"/><path d="M16 14h6v15h20V14h6v36h-6V35H22v15h-6z" fill="#f47920"/></svg>
+          <div class="ft-brand-name">Henrica<em> Construction</em></div>
+        </div>
+        <p class="ft-tag" data-i18n="ft.tag">"Construire avec confiance, bâtir pour l'avenir." Votre partenaire construction depuis 2014.</p>
+      </div>
+      <div>
+        <div class="ft-col-ttl" data-i18n="ft.c1">SERVICES</div>
+        <button class="fl" onclick="goTo('services')" data-i18n="s1n">Construction & Rénovation</button>
+        <button class="fl" onclick="goTo('services')" data-i18n="s2n">Installation Électrique</button>
+        <button class="fl" onclick="goTo('services')" data-i18n="s3n">Eau Potable & Forage</button>
+        <button class="fl" onclick="goTo('services')" data-i18n="s5n">Carrelage & Revêtement</button>
+      </div>
+      <div>
+        <div class="ft-col-ttl" data-i18n="ft.c2">ENTREPRISE</div>
+        <button class="fl" onclick="goTo('why')" data-i18n="nav.why">Pourquoi Nous</button>
+        <button class="fl" onclick="goTo('projects')" data-i18n="nav.projects">Réalisations</button>
+        <button class="fl" onclick="goTo('testi')" data-i18n="nav.testi">Témoignages</button>
+        <button class="fl" onclick="goTo('contact')" data-i18n="nav.contact">Contact</button>
+      </div>
+      <div>
+        <div class="ft-col-ttl" data-i18n="ft.c3">CONTACT</div>
+        <div class="fl" style="cursor:default">📞 +243 976 760 093</div>
+        <div class="fl" style="cursor:default">✉️ contact@henrica-construction.cd</div>
+        <div class="fl" style="cursor:default" data-i18n="ft.addr">📍 Gombe, Kinshasa, RDC</div>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <div class="ft-copy">© 2026 Henrica Construction SARL. <span data-i18n="ft.rights">Tous droits réservés.</span></div>
+      <div class="ft-soc">
+        <button class="socbtn" title="Facebook">f</button>
+        <button class="socbtn" title="Instagram">◉</button>
+        <button class="socbtn" title="LinkedIn">in</button>
+        <button class="socbtn" title="WhatsApp">✉</button>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════════ LOGIN VIEW ═══════════════════════════════════════════ -->
+<div class="view login-view" id="loginView">
+  <div class="lbox">
+    <div class="lbrand">
+      <svg class="lf-login" viewBox="0 0 130 50" xmlns="http://www.w3.org/2000/svg">
+        <text x="65" y="28" text-anchor="middle" font-family="Playfair Display,serif" font-weight="800" font-size="22" fill="white">HENRICA</text>
+        <text x="65" y="42" text-anchor="middle" font-family="Outfit,sans-serif" font-weight="600" font-size="6" letter-spacing="3" fill="white">CONSTRUCTION</text>
+      </svg>
+      <div class="lbrand-name">Henrica<em> Construction</em></div>
+    </div>
+    <div class="lttl" data-i18n="login.ttl">Portail Client</div>
+    <div class="lsub" data-i18n="login.sub">Connectez-vous pour suivre votre projet</div>
+    <div class="lf"><label data-i18n="login.email">Email</label><input id="loginEmail" type="email" placeholder="vous@exemple.cd" value="marie@example.cd"></div>
+    <div class="lf"><label data-i18n="login.pwd">Mot de passe</label><input id="loginPwd" type="password" placeholder="••••••••" value="demo123"></div>
+    <button class="lsubmit" onclick="doLogin()" data-i18n="login.submit">Se Connecter →</button>
+    <div class="lalt"><span data-i18n="login.alt">Pas encore client ?</span> <a onclick="showHome();setTimeout(()=>openModal('qModal'),200)" data-i18n="login.alt.link">Demander un devis</a></div>
+    <div style="text-align:center;margin-top:14px"><a class="fl" style="color:var(--muted);font-size:11px;display:inline" onclick="showHome()" data-i18n="login.back">← Retour à l'accueil</a></div>
+    <div class="lapp-row">
+      <div class="lapp-lbl" data-i18n="login.app">OU TÉLÉCHARGEZ L'APPLICATION</div>
+      <div class="lapp-bads">
+        <a class="app-badge sm" onclick="downloadApp('ios')" role="button">
+          <svg viewBox="0 0 24 24" fill="white"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+          <span class="ab-txt"><small data-i18n="ab.ios.s">Télécharger sur</small><strong>App Store</strong></span>
+        </a>
+        <a class="app-badge sm" onclick="downloadApp('android')" role="button">
+          <svg viewBox="0 0 24 24"><path fill="#EA4335" d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92z"/><path fill="#FBBC04" d="M16.802 8.03l2.807 1.626a1 1 0 010 1.732l-2.807 1.626L14.5 12l2.302-3.97z"/><path fill="#4285F4" d="M14.5 12l-8.636 8.637 10.938-6.333L14.5 12z"/><path fill="#34A853" d="M5.864 1.696L16.802 8.03 14.5 10.333 5.864 1.696z"/></svg>
+          <span class="ab-txt"><small data-i18n="ab.and.s">Disponible sur</small><strong>Google Play</strong></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ PORTAL VIEW ═══════════════════════════════════════════ -->
+<div class="view" id="portalView">
+  <div class="ptbar">
+    <div class="ptb-l">
+      <button class="ptb-back" onclick="logout()">← <span data-i18n="portal.logout">Déconnexion</span></button>
+      <div class="ptb-sep"></div>
+      <div class="ptb-greet"><span data-i18n="portal.hi">Bonjour</span>, <strong id="ptUserName">Marie</strong></div>
+    </div>
+    <div class="ptb-r">
+      <div class="lt">
+        <button class="lb active" onclick="setLang('fr')" data-lang="fr">FR</button>
+        <button class="lb" onclick="setLang('en')" data-lang="en">EN</button>
+      </div>
+      <button class="ptb-ic" title="Notifications" onclick="toast(t('portal.notif'))">🔔<span class="ptb-dot"></span></button>
+      <button class="ptb-av" id="ptAvatar">M</button>
+    </div>
+  </div>
+  <div class="playout">
+    <aside class="psb">
+      <div class="psb-brand">
+        <div class="psb-bn">Henrica<em style="color:var(--orange);font-style:normal"> Construction</em></div>
+        <div class="psb-bs" data-i18n="portal.client">Espace Client</div>
+      </div>
+      <div class="psb-sec">
+        <div class="psb-lbl" data-i18n="portal.menu1">VUE D'ENSEMBLE</div>
+        <button class="pi active" data-tab="dash" onclick="showTab('dash')">📊 <span data-i18n="portal.dash">Tableau de Bord</span></button>
+        <button class="pi" data-tab="projs" onclick="showTab('projs')">🏗️ <span data-i18n="portal.projs">Mes Projets</span><span class="pbadge">2</span></button>
+      </div>
+      <div class="psb-sec">
+        <div class="psb-lbl" data-i18n="portal.menu2">FINANCES</div>
+        <button class="pi" data-tab="invs" onclick="showTab('invs')">🧾 <span data-i18n="portal.invs">Factures</span><span class="pbadge al">1</span></button>
+        <button class="pi" data-tab="docs" onclick="showTab('docs')">📁 <span data-i18n="portal.docs">Documents</span></button>
+      </div>
+      <div class="psb-sec">
+        <div class="psb-lbl" data-i18n="portal.menu3">COMMUNICATION</div>
+        <button class="pi" data-tab="msgs" onclick="showTab('msgs')">💬 <span data-i18n="portal.msgs">Messages</span><span class="pbadge">3</span></button>
+      </div>
+    </aside>
+    <main class="pmain">
+      <!-- DASH -->
+      <div class="ptab active" id="tabDash">
+        <div class="pwel">
+          <div>
+            <div class="pwel-h"><span data-i18n="portal.welcome">Bienvenue</span>, <span id="welcomeName">Marie</span> 👋</div>
+            <div class="pwel-p" data-i18n="portal.welcome.sub">Voici l'état de vos projets en cours.</div>
+          </div>
+          <div class="pq">
+            <button class="pqb pri" onclick="openModal('qModal')" data-i18n="portal.q.new">+ Nouveau Projet</button>
+            <button class="pqb sec" onclick="showTab('msgs')" data-i18n="portal.q.contact">Contacter Équipe</button>
+          </div>
+        </div>
+        <div class="pkpis">
+          <div class="pkpi" style="--pkc:#22c55e"><div class="pkpi-l" data-i18n="portal.k1">PROJETS ACTIFS</div><div class="pkpi-v">2</div><div class="pkpi-s" data-i18n="portal.k1s">+1 ce mois</div></div>
+          <div class="pkpi" style="--pkc:var(--orange)"><div class="pkpi-l" data-i18n="portal.k2">AVANCEMENT MOYEN</div><div class="pkpi-v">67%</div><div class="pkpi-s" data-i18n="portal.k2s">Sur les 2 chantiers</div></div>
+          <div class="pkpi" style="--pkc:#3b82f6"><div class="pkpi-l" data-i18n="portal.k3">FACTURES PAYÉES</div><div class="pkpi-v">8/9</div><div class="pkpi-s" data-i18n="portal.k3s">1 en attente</div></div>
+          <div class="pkpi" style="--pkc:#a855f7"><div class="pkpi-l" data-i18n="portal.k4">MESSAGES</div><div class="pkpi-v">3</div><div class="pkpi-s" data-i18n="portal.k4s">Non lus</div></div>
+        </div>
+        <div class="pprojs" id="pprojsList"></div>
+        <div class="ptwo">
+          <div class="pcard">
+            <div class="pcard-h"><div class="pcard-ttl" data-i18n="portal.activity">Activité Récente</div><button class="pcard-act" data-i18n="portal.viewall">Voir tout</button></div>
+            <div class="actfeed" id="actFeed"></div>
+          </div>
+          <div class="pcard">
+            <div class="pcard-h"><div class="pcard-ttl" data-i18n="portal.next">Prochaines Étapes</div></div>
+            <div style="padding:14px">
+              <div style="font-size:11px;color:var(--orange);font-weight:700;letter-spacing:1.5px;margin-bottom:6px">📅 02 MAI 2026</div>
+              <div style="font-size:13px;color:var(--white);margin-bottom:14px" data-i18n="portal.next1">Inspection technique — Villa Gombe</div>
+              <div style="font-size:11px;color:var(--orange);font-weight:700;letter-spacing:1.5px;margin-bottom:6px">📅 12 MAI 2026</div>
+              <div style="font-size:13px;color:var(--white);margin-bottom:14px" data-i18n="portal.next2">Livraison carrelage — Bureau Limete</div>
+              <div style="font-size:11px;color:var(--orange);font-weight:700;letter-spacing:1.5px;margin-bottom:6px">📅 28 MAI 2026</div>
+              <div style="font-size:13px;color:var(--white)" data-i18n="portal.next3">Réception finale — Villa Gombe</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- PROJS -->
+      <div class="ptab" id="tabProjs">
+        <div class="pwel"><div><div class="pwel-h" data-i18n="portal.projs.h">Mes Projets</div><div class="pwel-p" data-i18n="portal.projs.p">Suivi de tous vos chantiers en cours et terminés.</div></div></div>
+        <div class="pprojs" id="pprojsListFull"></div>
+      </div>
+      <!-- INVS -->
+      <div class="ptab" id="tabInvs">
+        <div class="pwel"><div><div class="pwel-h" data-i18n="portal.invs.h">Factures & Paiements</div><div class="pwel-p" data-i18n="portal.invs.p">Historique complet et paiement sécurisé en ligne.</div></div></div>
+        <div class="pcard">
+          <table class="itbl">
+            <thead><tr>
+              <th data-i18n="invs.ref">RÉFÉRENCE</th>
+              <th data-i18n="invs.proj">PROJET</th>
+              <th data-i18n="invs.date">DATE</th>
+              <th data-i18n="invs.amt">MONTANT</th>
+              <th data-i18n="invs.status">STATUT</th>
+              <th></th>
+            </tr></thead>
+            <tbody id="invsTbl"></tbody>
+          </table>
+        </div>
+      </div>
+      <!-- DOCS -->
+      <div class="ptab" id="tabDocs">
+        <div class="pwel"><div><div class="pwel-h" data-i18n="portal.docs.h">Documents</div><div class="pwel-p" data-i18n="portal.docs.p">Plans, contrats, certificats et photos de chantier.</div></div></div>
+        <div class="pcard">
+          <div class="pcard-h"><div class="pcard-ttl" data-i18n="portal.docs.recent">Documents Récents</div><button class="pcard-act" onclick="toast(t('portal.upload'))" data-i18n="portal.docs.up">+ Téléverser</button></div>
+          <div class="dgrid" id="docsGrid"></div>
+        </div>
+      </div>
+      <!-- MSGS -->
+      <div class="ptab" id="tabMsgs">
+        <div class="pwel"><div><div class="pwel-h" data-i18n="portal.msgs.h">Messagerie</div><div class="pwel-p" data-i18n="portal.msgs.p">Discutez directement avec votre chef de projet.</div></div></div>
+        <div class="mlayout">
+          <div class="mlist" id="msgList"></div>
+          <div class="mthread">
+            <div class="mth" id="msgThreadTitle">Jean-Paul Mukendi · <span style="color:var(--muted);font-weight:400" data-i18n="portal.msgs.cp">Chef de projet</span></div>
+            <div class="mbody" id="msgBody"></div>
+            <div class="minput">
+              <input class="minp" id="msgInput" type="text" placeholder="Tapez votre message...">
+              <button class="msend" onclick="sendMsg()" data-i18n="portal.msgs.send">ENVOYER</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ QUOTE MODAL ═══════════════════════════════════════════ -->
+<div class="moverlay" id="qModal">
+  <div class="modal">
+    <button class="mclose" onclick="closeModal('qModal')">✕</button>
+    <div id="qForm">
+      <div class="mttl" data-i18n="modal.ttl">Demander un Devis</div>
+      <div class="msub" data-i18n="modal.sub">Réponse sous 48h, sans engagement</div>
+      <div class="fg"><label data-i18n="modal.name">Nom Complet</label><input id="fn" type="text" placeholder="Marie Irène Shilombo"></div>
+      <div class="fg"><label data-i18n="modal.phone">Téléphone / WhatsApp</label><input id="fp" type="tel" placeholder="+243 976 760 093"></div>
+      <div class="fg"><label data-i18n="modal.svc">Type de Service</label>
+        <select id="fsel">
+          <option data-i18n="modal.svc.def">-- Choisir un service --</option>
+          <option data-i18n="s1n">Construction & Rénovation</option>
+          <option data-i18n="s2n">Installation Électrique</option>
+          <option data-i18n="s3n">Eau Potable & Forage</option>
+          <option data-i18n="s4n">Travaux de Plafond</option>
+          <option data-i18n="s5n">Carrelage & Revêtement</option>
+          <option data-i18n="s6n">Peinture & Décoration</option>
+          <option data-i18n="s7n">Plâtrerie & Enduits</option>
+          <option data-i18n="s8n">Études & Supervision</option>
+          <option data-i18n="s9n">Isolation & Électromécanique</option>
+        </select>
+      </div>
+      <div class="fg"><label data-i18n="modal.msg">Décrivez votre projet</label><textarea id="fm" placeholder="Budget estimé, localisation, délai..."></textarea></div>
+      <!-- honeypot: hidden from humans, attractive to bots -->
+      <div style="position:absolute;left:-9999px" aria-hidden="true"><label>Website</label><input id="fw" type="text" tabindex="-1" autocomplete="off"></div>
+      <button class="fsubmit" id="fsubmitBtn" onclick="submitQuote()" data-i18n="modal.submit">Envoyer ma Demande →</button>
+    </div>
+    <div class="fsuccess" id="qSuccess">
+      <div class="fsuccess-icon">✅</div>
+      <h3 data-i18n="modal.ok.ttl">Demande Envoyée !</h3>
+      <p data-i18n="modal.ok.msg">Henrica Construction vous contactera dans les 48 heures.</p>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ─────────────────────────  LOGO  (inline SVG as data URI — replace with your real PNG later) ───────────────────────── */
+const LOGO='data:image/svg+xml;utf8,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="32" text-anchor="middle" font-family="Playfair Display,serif" font-weight="800" font-size="28" fill="white">HENRICA</text><text x="100" y="48" text-anchor="middle" font-family="Outfit,sans-serif" font-weight="600" font-size="7" letter-spacing="3" fill="white">CONSTRUCTION</text></svg>`);
+document.getElementById('navLogo').src=LOGO;
+document.querySelectorAll('.ph-logo img').forEach(i=>i.src=LOGO);
+
+/* ─────────────────────────  i18n  ───────────────────────── */
+const I18N={
+  fr:{
+    'nav.tag':'CONSTRUIRE · BÂTIR · DURER','nav.services':'Services','nav.projects':'Réalisations','nav.why':'Pourquoi Nous','nav.testi':'Témoignages','nav.app':'Application','nav.contact':'Contact','nav.login':'Connexion','nav.quote':'Devis Gratuit',
+    'hero.tag':'RDC · KINSHASA · DEPUIS 2014','hero.h1a':'Construire avec','hero.h1b':'Confiance','hero.h1c':'Bâtir pour','hero.h1d':"l'Avenir",'hero.tagline':'EXCELLENCE · INTÉGRITÉ · DURABILITÉ','hero.desc':"De la fondation à la finition, Henrica Construction réalise vos projets résidentiels et commerciaux avec un savoir-faire reconnu, des matériaux de qualité et un engagement total envers nos clients.",'hero.cta1':'Demander un Devis →','hero.cta2':'Voir Nos Réalisations','hero.badge':"10 ans d'excellence",'hero.s1':'PROJETS LIVRÉS','hero.s2':'CLIENTS SATISFAITS','hero.contact':'CONTACT DIRECT',
+    'sbar.years':"ANNÉES D'EXPÉRIENCE",'sbar.proj':'PROJETS RÉALISÉS','sbar.team':'PROFESSIONNELS','sbar.svc':"DOMAINES D'EXPERTISE",
+    'svc.lbl':'NOS SERVICES','svc.ttl1':'Une expertise','svc.ttl2':'complète',
+    's1n':'Construction & Rénovation','s1d':'Maisons, villas, immeubles. Gros œuvre et second œuvre, du terrassement à la finition clé-en-main.',
+    's2n':'Installation Électrique','s2d':"Câblage basse et moyenne tension, tableaux, mise à la terre. Conformité aux normes RDC/IEC.",
+    's3n':'Eau Potable & Forage','s3d':"Forages, citernes, plomberie sanitaire et systèmes de pompage solaire ou électrique.",
+    's4n':'Travaux de Plafond','s4d':'Plafonds suspendus, BA13, faux-plafonds décoratifs avec intégration éclairage LED.',
+    's5n':'Carrelage & Revêtement','s5d':"Pose carrelage sol et mur, mosaïques, marbres et granits — finition haut de gamme.",
+    's6n':'Peinture & Décoration','s6d':"Peinture intérieure et extérieure, enduits décoratifs, papier peint, conseils couleurs.",
+    's7n':'Plâtrerie & Enduits','s7d':"Cloisons placoplâtre, enduits lisses, ragréage et préparation parfaite des supports.",
+    's8n':'Études & Supervision','s8d':"Plans architecturaux, études de structure, suivi de chantier et coordination des corps de métier.",
+    's9n':'Isolation & Électromécanique','s9d':"Isolation thermique et acoustique, climatisation, ventilation, groupes électrogènes et onduleurs.",
+    'svc.arr':'EN SAVOIR PLUS',
+    'proj.lbl':'RÉALISATIONS','proj.ttl1':'Nos projets','proj.ttl2':'phares','proj.all':'Voir tout le portfolio →','proj.toast':'Portfolio complet bientôt disponible',
+    'p1n':'Villa Contemporaine — Gombe','p1c':'RÉSIDENTIEL','p1d1':'420 m²','p1d2':'2025',
+    'p2n':"Immeuble de Bureaux — Limete",'p2c':'COMMERCIAL','p2d1':'1 800 m²','p2d2':'2024',
+    'p3n':'Forage & Château d\'eau','p3c':'INFRASTRUCTURE','p3d1':'80 m³/jour','p3d2':'2025',
+    'p4n':'Centre Médical — Lemba','p4c':'INSTITUTIONNEL','p4d1':'650 m²','p4d2':'2024',
+    'p5n':'Rénovation Villa — Ma Campagne','p5c':'RÉNOVATION','p5d1':'310 m²','p5d2':'2025',
+    'pov':'VOIR LE PROJET',
+    'why.lbl':'POURQUOI HENRICA','why.ttl1':"L'engagement",'why.ttl2':'qualité','why.b1':'ANS','why.b2':'SATISFACTION',
+    'wf1n':'Devis transparent et fixe','wf1d':'Pas de surprise. Le prix annoncé est le prix payé. Tous les postes sont détaillés.',
+    'wf2n':'Délais respectés','wf2d':'Planning ferme avec jalons hebdomadaires. Pénalités contractuelles si retard de notre fait.',
+    'wf3n':'Matériaux certifiés','wf3d':'Fournisseurs sélectionnés, traçabilité complète, garantie décennale sur le gros œuvre.',
+    'wf4n':"Suivi en temps réel",'wf4d':"Photos hebdomadaires, accès au portail client, visites de chantier sur rendez-vous.",
+    'testi.lbl':'TÉMOIGNAGES','testi.ttl1':'Ils nous font','testi.ttl2':'confiance',
+    't1q':"Henrica a livré notre villa avec deux semaines d'avance et un budget tenu à l'euro près. Travail soigné, équipe professionnelle. Je recommande sans hésiter.",'t1n':'Patrick Lumumba','t1r':'Propriétaire — Villa Gombe',
+    't2q':"Excellente coordination des corps de métier sur notre immeuble de bureaux. La communication via le portail nous a permis de tout suivre, même depuis Bruxelles.",'t2n':'Aline Tshibanda','t2r':'Directrice — SCI Limete',
+    't3q':"Forage réalisé en moins d'une semaine, débit conforme. Service après-vente impeccable, intervention en 24h sur une fuite mineure.",'t3n':'Joseph Kabamba','t3r':'Particulier — Mont-Ngafula',
+    'app.lbl':'APPLICATION CLIENT','app.ttl1':'Suivez votre projet','app.ttl2':'en temps réel','app.desc':"Notre portail client vous donne une visibilité totale : avancement des chantiers, factures, photos, messages avec votre chef de projet — partout, à tout moment.",'app.f1':"Suivi de l'avancement chantier en photos",'app.f2':'Factures et paiements sécurisés en ligne','app.f3':'Messagerie directe avec votre chef de projet','app.f4':'Accès à tous les documents du projet','app.cta':'Accéder au Portail →',
+    'ph.sec':'PROJET ACTIF','ph.name':'Villa Gombe — Lot 12','ph.notif':'DERNIÈRE MISE À JOUR','ph.notif.txt':'Coulage dalle R+1 terminé. 24 nouvelles photos disponibles.',
+    'cta.lbl':"DÉMARREZ AUJOURD'HUI",'cta.ttl1':'Votre projet,','cta.ttl2':'notre engagement','cta.desc':"Parlons de votre projet. Devis gratuit, visite sur site, accompagnement de A à Z.",'cta.cta1':'Demander un Devis','cta.c1':'TÉLÉPHONE','cta.c2':'EMAIL','cta.c3':'SIÈGE','cta.c3v':'Av. de la Paix, Gombe<br>Kinshasa, RDC',
+    'ft.tag':"« Construire avec confiance, bâtir pour l'avenir. » Votre partenaire construction depuis 2014.",'ft.c1':'SERVICES','ft.c2':'ENTREPRISE','ft.c3':'CONTACT','ft.addr':'📍 Gombe, Kinshasa, RDC','ft.rights':'Tous droits réservés.',
+    'modal.ttl':'Demander un Devis','modal.sub':'Réponse sous 48h, sans engagement','modal.name':'Nom Complet','modal.phone':'Téléphone / WhatsApp','modal.svc':'Type de Service','modal.svc.def':'-- Choisir un service --','modal.msg':'Décrivez votre projet','modal.submit':'Envoyer ma Demande →','modal.ok.ttl':'Demande Envoyée !','modal.ok.msg':'Henrica Construction vous contactera dans les 48 heures.','modal.err':'Veuillez remplir tous les champs obligatoires.',
+    'login.ttl':'Portail Client','login.sub':'Connectez-vous pour suivre votre projet','login.email':'Email','login.pwd':'Mot de passe','login.submit':'Se Connecter →','login.alt':'Pas encore client ?','login.alt.link':'Demander un devis','login.back':"← Retour à l'accueil",'login.err':'Email ou mot de passe incorrect.','login.ok':'Connexion réussie !',
+    'portal.logout':'Déconnexion','portal.hi':'Bonjour','portal.client':'Espace Client','portal.menu1':"VUE D'ENSEMBLE",'portal.menu2':'FINANCES','portal.menu3':'COMMUNICATION','portal.dash':'Tableau de Bord','portal.projs':'Mes Projets','portal.invs':'Factures','portal.docs':'Documents','portal.msgs':'Messages',
+    'portal.welcome':'Bienvenue','portal.welcome.sub':"Voici l'état de vos projets en cours.",'portal.q.new':'+ Nouveau Projet','portal.q.contact':'Contacter Équipe',
+    'portal.k1':'PROJETS ACTIFS','portal.k1s':'+1 ce mois','portal.k2':'AVANCEMENT MOYEN','portal.k2s':'Sur les 2 chantiers','portal.k3':'FACTURES PAYÉES','portal.k3s':'1 en attente','portal.k4':'MESSAGES','portal.k4s':'Non lus',
+    'portal.activity':'Activité Récente','portal.viewall':'Voir tout','portal.next':'Prochaines Étapes','portal.next1':'Inspection technique — Villa Gombe','portal.next2':'Livraison carrelage — Bureau Limete','portal.next3':'Réception finale — Villa Gombe',
+    'portal.projs.h':'Mes Projets','portal.projs.p':'Suivi de tous vos chantiers en cours et terminés.','portal.invs.h':'Factures & Paiements','portal.invs.p':'Historique complet et paiement sécurisé en ligne.','portal.docs.h':'Documents','portal.docs.p':'Plans, contrats, certificats et photos de chantier.','portal.docs.recent':'Documents Récents','portal.docs.up':'+ Téléverser','portal.upload':'Téléversement bientôt disponible.','portal.msgs.h':'Messagerie','portal.msgs.p':'Discutez directement avec votre chef de projet.','portal.msgs.cp':'Chef de projet','portal.msgs.send':'ENVOYER','portal.notif':'Aucune nouvelle notification.',
+    'invs.ref':'RÉFÉRENCE','invs.proj':'PROJET','invs.date':'DATE','invs.amt':'MONTANT','invs.status':'STATUT','invs.paid':'PAYÉ','invs.due':'À RÉGLER','invs.pay':'PAYER','invs.toast.pay':'Paiement en cours de traitement...','invs.toast.view':'Détails de la facture',
+    'ab.ios.s':'Télécharger sur','ab.and.s':'Disponible sur','login.app':"OU TÉLÉCHARGEZ L'APPLICATION",'app.toast.ios':"Bientôt disponible sur l'App Store",'app.toast.android':'Bientôt disponible sur Google Play',
+    'pp.active':'EN COURS','pp.review':'EN RÉVISION','pp.view':'VOIR DÉTAILS',
+    'act.1':"a uploadé 24 photos sur",'act.1n':'Villa Gombe','act.2':'Facture',"act.2n":'INV-0091','act.2x':'envoyée pour le bureau Limete','act.3':'Inspection technique programmée pour',"act.3n":'02 mai','act.4':'Étape complétée :','act.4n':'Coulage dalle R+1',
+    'act.h1':"il y a 2h",'act.h2':"il y a 5h",'act.h3':"hier",'act.h4':"il y a 2 jours",
+  },
+  en:{
+    'nav.tag':'BUILD · CRAFT · ENDURE','nav.services':'Services','nav.projects':'Projects','nav.why':'Why Us','nav.testi':'Testimonials','nav.app':'App','nav.contact':'Contact','nav.login':'Sign In','nav.quote':'Free Quote',
+    'hero.tag':'DRC · KINSHASA · SINCE 2014','hero.h1a':'Build with','hero.h1b':'Confidence','hero.h1c':'Craft for','hero.h1d':'the Future','hero.tagline':'EXCELLENCE · INTEGRITY · DURABILITY','hero.desc':"From foundation to finish, Henrica Construction delivers residential and commercial projects with proven craftsmanship, premium materials and complete commitment to our clients.",'hero.cta1':'Get a Quote →','hero.cta2':'View Our Work','hero.badge':'10 years of excellence','hero.s1':'PROJECTS DELIVERED','hero.s2':'SATISFIED CLIENTS','hero.contact':'DIRECT CONTACT',
+    'sbar.years':'YEARS OF EXPERIENCE','sbar.proj':'PROJECTS COMPLETED','sbar.team':'PROFESSIONALS','sbar.svc':'AREAS OF EXPERTISE',
+    'svc.lbl':'OUR SERVICES','svc.ttl1':'Complete','svc.ttl2':'expertise',
+    's1n':'Construction & Renovation','s1d':'Houses, villas, buildings. Structural and finishing work — turnkey from groundwork to handover.',
+    's2n':'Electrical Installation','s2d':"Low and medium voltage wiring, panels, grounding. Compliant with DRC/IEC standards.",
+    's3n':'Drinking Water & Drilling','s3d':"Boreholes, tanks, sanitary plumbing and solar/electric pumping systems.",
+    's4n':'Ceiling Works','s4d':'Suspended ceilings, drywall, decorative false ceilings with integrated LED lighting.',
+    's5n':'Tiling & Flooring','s5d':"Floor and wall tiling, mosaics, marble and granite — high-end finishing.",
+    's6n':'Painting & Decoration','s6d':"Interior and exterior painting, decorative coatings, wallpaper, color consulting.",
+    's7n':'Plastering & Coatings','s7d':"Drywall partitions, smooth plaster, surface preparation and perfect substrate work.",
+    's8n':'Design & Supervision','s8d':"Architectural plans, structural studies, site supervision and trade coordination.",
+    's9n':'Insulation & Electromechanical','s9d':"Thermal and acoustic insulation, A/C, ventilation, generators and inverters.",
+    'svc.arr':'LEARN MORE',
+    'proj.lbl':'PROJECTS','proj.ttl1':'Our flagship','proj.ttl2':'work','proj.all':'See full portfolio →','proj.toast':'Full portfolio coming soon',
+    'p1n':'Contemporary Villa — Gombe','p1c':'RESIDENTIAL','p1d1':'420 m²','p1d2':'2025',
+    'p2n':'Office Building — Limete','p2c':'COMMERCIAL','p2d1':'1,800 m²','p2d2':'2024',
+    'p3n':'Borehole & Water Tower','p3c':'INFRASTRUCTURE','p3d1':'80 m³/day','p3d2':'2025',
+    'p4n':'Medical Center — Lemba','p4c':'INSTITUTIONAL','p4d1':'650 m²','p4d2':'2024',
+    'p5n':'Villa Renovation — Ma Campagne','p5c':'RENOVATION','p5d1':'310 m²','p5d2':'2025',
+    'pov':'VIEW PROJECT',
+    'why.lbl':'WHY HENRICA','why.ttl1':'Quality','why.ttl2':'commitment','why.b1':'YEARS','why.b2':'SATISFACTION',
+    'wf1n':'Transparent fixed quote','wf1d':"No surprises. The price quoted is the price paid. Every line item is detailed.",
+    'wf2n':'Deadlines respected','wf2d':"Firm schedule with weekly milestones. Contractual penalties if we delay.",
+    'wf3n':'Certified materials','wf3d':"Vetted suppliers, full traceability, 10-year warranty on structural work.",
+    'wf4n':'Real-time tracking','wf4d':"Weekly photos, client portal access, on-site visits by appointment.",
+    'testi.lbl':'TESTIMONIALS','testi.ttl1':'Trusted by','testi.ttl2':'leaders',
+    't1q':"Henrica delivered our villa two weeks ahead of schedule, on budget to the dollar. Clean work, professional team. I recommend without hesitation.",'t1n':'Patrick Lumumba','t1r':'Owner — Villa Gombe',
+    't2q':"Excellent coordination of trades on our office building. The portal communication let us track everything, even from Brussels.",'t2n':'Aline Tshibanda','t2r':'Director — SCI Limete',
+    't3q':"Borehole completed in under a week, flow on spec. Aftercare is faultless, they responded in 24h to a minor leak.",'t3n':'Joseph Kabamba','t3r':'Homeowner — Mont-Ngafula',
+    'app.lbl':'CLIENT APP','app.ttl1':'Track your project','app.ttl2':'in real time','app.desc':"Our client portal gives you full visibility: site progress, invoices, photos, messages with your project manager — anywhere, anytime.",'app.f1':'Site progress tracking with photos','app.f2':'Secure online invoices and payments','app.f3':'Direct messaging with your project manager','app.f4':'Access to all project documents','app.cta':'Open Portal →',
+    'ph.sec':'ACTIVE PROJECT','ph.name':'Villa Gombe — Lot 12','ph.notif':'LATEST UPDATE','ph.notif.txt':'1st floor slab pour complete. 24 new photos available.',
+    'cta.lbl':'START TODAY','cta.ttl1':'Your project,','cta.ttl2':'our commitment','cta.desc':"Let's talk about your project. Free quote, on-site visit, full A-to-Z support.",'cta.cta1':'Get a Quote','cta.c1':'PHONE','cta.c2':'EMAIL','cta.c3':'HEAD OFFICE','cta.c3v':'Av. de la Paix, Gombe<br>Kinshasa, DRC',
+    'ft.tag':'"Build with confidence, craft for the future." Your construction partner since 2014.','ft.c1':'SERVICES','ft.c2':'COMPANY','ft.c3':'CONTACT','ft.addr':'📍 Gombe, Kinshasa, DRC','ft.rights':'All rights reserved.',
+    'modal.ttl':'Request a Quote','modal.sub':'Reply within 48h, no commitment','modal.name':'Full Name','modal.phone':'Phone / WhatsApp','modal.svc':'Service Type','modal.svc.def':'-- Choose a service --','modal.msg':'Describe your project','modal.submit':'Send My Request →','modal.ok.ttl':'Request Sent!','modal.ok.msg':'Henrica Construction will contact you within 48 hours.','modal.err':'Please fill in all required fields.',
+    'login.ttl':'Client Portal','login.sub':'Sign in to track your project','login.email':'Email','login.pwd':'Password','login.submit':'Sign In →','login.alt':'Not yet a client?','login.alt.link':'Request a quote','login.back':'← Back to home','login.err':'Incorrect email or password.','login.ok':'Signed in successfully!',
+    'portal.logout':'Sign Out','portal.hi':'Hello','portal.client':'Client Area','portal.menu1':'OVERVIEW','portal.menu2':'FINANCE','portal.menu3':'COMMUNICATION','portal.dash':'Dashboard','portal.projs':'My Projects','portal.invs':'Invoices','portal.docs':'Documents','portal.msgs':'Messages',
+    'portal.welcome':'Welcome','portal.welcome.sub':'Here is the status of your ongoing projects.','portal.q.new':'+ New Project','portal.q.contact':'Contact Team',
+    'portal.k1':'ACTIVE PROJECTS','portal.k1s':'+1 this month','portal.k2':'AVERAGE PROGRESS','portal.k2s':'Across 2 sites','portal.k3':'INVOICES PAID','portal.k3s':'1 pending','portal.k4':'MESSAGES','portal.k4s':'Unread',
+    'portal.activity':'Recent Activity','portal.viewall':'View all','portal.next':'Upcoming Milestones','portal.next1':'Technical inspection — Villa Gombe','portal.next2':'Tile delivery — Limete office','portal.next3':'Final handover — Villa Gombe',
+    'portal.projs.h':'My Projects','portal.projs.p':'All your ongoing and completed sites.','portal.invs.h':'Invoices & Payments','portal.invs.p':'Full history and secure online payment.','portal.docs.h':'Documents','portal.docs.p':'Plans, contracts, certificates and site photos.','portal.docs.recent':'Recent Documents','portal.docs.up':'+ Upload','portal.upload':'Upload coming soon.','portal.msgs.h':'Messages','portal.msgs.p':'Chat directly with your project manager.','portal.msgs.cp':'Project manager','portal.msgs.send':'SEND','portal.notif':'No new notifications.',
+    'invs.ref':'REFERENCE','invs.proj':'PROJECT','invs.date':'DATE','invs.amt':'AMOUNT','invs.status':'STATUS','invs.paid':'PAID','invs.due':'DUE','invs.pay':'PAY','invs.toast.pay':'Payment processing...','invs.toast.view':'Invoice details',
+    'ab.ios.s':'Download on the','ab.and.s':'Get it on','login.app':'OR DOWNLOAD THE APP','app.toast.ios':'Coming soon on the App Store','app.toast.android':'Coming soon on Google Play',
+    'pp.active':'IN PROGRESS','pp.review':'IN REVIEW','pp.view':'VIEW DETAILS',
+    'act.1':'uploaded 24 photos to','act.1n':'Villa Gombe','act.2':'Invoice','act.2n':'INV-0091','act.2x':'sent for Limete office','act.3':'Technical inspection scheduled for','act.3n':'May 2','act.4':'Milestone completed:','act.4n':'1st floor slab pour',
+    'act.h1':'2h ago','act.h2':'5h ago','act.h3':'yesterday','act.h4':'2 days ago',
+  }
+};
+let LANG='fr';
+const t=(k)=>{const v=I18N[LANG]?.[k];return v??I18N.fr?.[k]??k;};
+function setLang(l){
+  LANG=l;document.documentElement.lang=l;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k=el.getAttribute('data-i18n');const v=I18N[l]?.[k];if(v==null)return;
+    if(el.tagName==='OPTION'){el.textContent=v;}
+    else if(v.includes('<br>'))el.innerHTML=v;
+    else el.textContent=v;
+  });
+  document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
+  renderServices();renderProjects();renderWhy();renderTesti();renderPortalProjs();renderInvs();renderDocs();renderMsgs();renderActivity();
+}
+
+/* ─────────────────────────  DATA  ───────────────────────── */
+const SERVICES=[
+  {n:1,icon:'🏗️',k:'s1'},{n:2,icon:'⚡',k:'s2'},{n:3,icon:'💧',k:'s3'},
+  {n:4,icon:'🪟',k:'s4'},{n:5,icon:'🧱',k:'s5'},{n:6,icon:'🎨',k:'s6'},
+  {n:7,icon:'🛠️',k:'s7'},{n:8,icon:'📐',k:'s8'},{n:9,icon:'❄️',k:'s9'},
+];
+const PROJECTS=[
+  {size:'big',img:'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=80',k:'p1'},
+  {size:'med',img:'https://images.unsplash.com/photo-1486718448742-163732cd1544?w=600&q=80',k:'p2'},
+  {size:'sml',img:'https://images.unsplash.com/photo-1587582423116-ec07293f0395?w=600&q=80',k:'p3'},
+  {size:'sml',img:'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80',k:'p4'},
+  {size:'sml',img:'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80',k:'p5'},
+];
+const WHYFEATS=[{i:'💰',k:'wf1'},{i:'⏱️',k:'wf2'},{i:'✅',k:'wf3'},{i:'📱',k:'wf4'}];
+const TESTI=[
+  {k:'t1',ini:'P'},{k:'t2',ini:'A'},{k:'t3',ini:'J'}
+];
+
+/* ─────────────────────────  RENDERS  ───────────────────────── */
+function renderServices(){
+  document.getElementById('svcGrid').innerHTML=SERVICES.map(s=>`
+    <div class="svc" onclick="openModal('qModal')">
+      <div class="svc-num">0${s.n}</div>
+      <span class="svc-icon">${s.icon}</span>
+      <div class="svc-name">${t(s.k+'n')}</div>
+      <div class="svc-desc">${t(s.k+'d')}</div>
+      <div class="svc-arr">${t('svc.arr')} →</div>
+    </div>`).join('');
+}
+function renderProjects(){
+  document.getElementById('projGrid').innerHTML=PROJECTS.map(p=>`
+    <div class="proj ${p.size}" onclick="toast(t('proj.toast'))">
+      <div class="proj-photo">
+        <img src="${p.img}" alt="" loading="lazy">
+        <div class="proj-ov"><button class="ov-btn">${t('pov')}</button></div>
+      </div>
+      <div class="proj-info">
+        <div class="proj-cat">${t(p.k+'c')}</div>
+        <div class="proj-name">${t(p.k+'n')}</div>
+        <div class="proj-dets">
+          <div class="proj-det">📐 ${t(p.k+'d1')}</div>
+          <div class="proj-det">📅 ${t(p.k+'d2')}</div>
+        </div>
+      </div>
+    </div>`).join('');
+}
+function renderWhy(){
+  document.getElementById('whyFeats').innerHTML=WHYFEATS.map(f=>`
+    <div class="why-feat">
+      <div class="why-feat-ic">${f.i}</div>
+      <div><div class="why-feat-ttl">${t(f.k+'n')}</div><div class="why-feat-dsc">${t(f.k+'d')}</div></div>
+    </div>`).join('');
+}
+function renderTesti(){
+  document.getElementById('testiGrid').innerHTML=TESTI.map(x=>`
+    <div class="testi">
+      <div class="testi-mark">"</div>
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-quote">"${t(x.k+'q')}"</div>
+      <div class="testi-auth">
+        <div class="tav">${x.ini}</div>
+        <div><div class="tname">${t(x.k+'n')}</div><div class="trole">${t(x.k+'r')}</div></div>
+      </div>
+    </div>`).join('');
+}
+
+/* ─────────────────────────  PORTAL DATA  ───────────────────────── */
+const PORTAL_PROJS=[
+  {cat:'p1c',name:'p1n',pct:67,start:'01/03/2026',end:'28/05/2026',status:'ac',k:'pp.active'},
+  {cat:'p2c',name:'p2n',pct:42,start:'15/02/2026',end:'30/06/2026',status:'rv',k:'pp.review'},
+];
+const INVS=[
+  {ref:'INV-2026-0089',proj:'p1n',date:'15/04/2026',amt:'$ 12 500',status:'paid'},
+  {ref:'INV-2026-0090',proj:'p1n',date:'01/04/2026',amt:'$ 8 200',status:'paid'},
+  {ref:'INV-2026-0091',proj:'p2n',date:'20/04/2026',amt:'$ 15 800',status:'due'},
+  {ref:'INV-2026-0085',proj:'p1n',date:'10/03/2026',amt:'$ 22 000',status:'paid'},
+];
+const DOCS=[
+  {icon:'📄',name:'Contrat principal',meta:'PDF · 2.4 MB',badge:'CONTRAT'},
+  {icon:'📐',name:'Plans architecturaux R+1',meta:'PDF · 8.1 MB',badge:'PLANS'},
+  {icon:'🖼️',name:'Photos chantier — Sem. 16',meta:'ZIP · 24 photos',badge:'PHOTOS'},
+  {icon:'📋',name:'Cahier des charges',meta:'PDF · 1.1 MB',badge:'TECHNIQUE'},
+  {icon:'🏗️',name:'Étude de structure',meta:'PDF · 4.8 MB',badge:'ÉTUDE'},
+  {icon:'✅',name:'Certificat conformité',meta:'PDF · 320 KB',badge:'OFFICIEL'},
+];
+const MSG_THREADS=[
+  {id:1,n:'Jean-Paul Mukendi',role:'Chef de projet',preview:'24 photos sont disponibles sur le portail.',time:'14:32',unread:true,
+   msgs:[
+     {who:'them',txt:"Bonjour Marie, j'ai uploadé 24 nouvelles photos du chantier ce matin.",time:'14:30'},
+     {who:'them',txt:'Le coulage de la dalle R+1 est terminé, on est dans les temps.',time:'14:31'},
+     {who:'them',txt:"L'inspection technique est confirmée pour le 02 mai à 10h.",time:'14:32'},
+   ]},
+  {id:2,n:'Brigitte Kankolongo',role:'Comptabilité',preview:'Facture INV-2026-0091 envoyée.',time:'10:15',unread:true,
+   msgs:[
+     {who:'them',txt:"Bonjour Marie, la facture pour le bureau Limete (INV-2026-0091) vient d'être envoyée.",time:'10:15'},
+   ]},
+  {id:3,n:'Olivier Mbuyi',role:'Architecte',preview:'Les plans révisés sont prêts.',time:'hier',unread:true,
+   msgs:[
+     {who:'them',txt:'Marie, j\'ai finalisé les plans révisés du R+1. Disponibles dans Documents.',time:'hier'},
+   ]},
+];
+let activeThread=1;
+
+function renderPortalProjs(){
+  const html=PORTAL_PROJS.map((p,i)=>`
+    <div class="pproj">
+      <div>
+        <div class="pp-cat">${t(p.cat)}</div>
+        <div class="pp-name">${t(p.name)}</div>
+        <div class="pp-pr">
+          <div class="pp-bar"><div class="pp-fill" style="width:${p.pct}%"></div></div>
+          <div class="pp-pct">${p.pct}%</div>
+        </div>
+        <div class="pp-meta"><div class="pp-mi">📅 ${p.start} → ${p.end}</div></div>
+      </div>
+      <div class="pp-r">
+        <span class="pp-st ${p.status}">${t(p.k)}</span>
+        <button class="pp-view" onclick="toast(t('pp.view'))">${t('pp.view')} →</button>
+      </div>
+    </div>`).join('');
+  const a=document.getElementById('pprojsList'),b=document.getElementById('pprojsListFull');
+  if(a)a.innerHTML=html;if(b)b.innerHTML=html;
+}
+function renderInvs(){
+  document.getElementById('invsTbl').innerHTML=INVS.map(i=>`
+    <tr style="cursor:pointer" onclick="toast(t('invs.toast.view')+' '+'${i.ref}')">
+      <td><span class="iref">${i.ref}</span></td>
+      <td><span class="iname">${t(i.proj)}</span></td>
+      <td>${i.date}</td>
+      <td><span class="iamt">${i.amt}</span></td>
+      <td><span class="ipill ${i.status}">${i.status==='paid'?t('invs.paid'):t('invs.due')}</span></td>
+      <td>${i.status==='due'?`<button class="ipay" onclick="event.stopPropagation();toast(t('invs.toast.pay'))">${t('invs.pay')}</button>`:''}</td>
+    </tr>`).join('');
+}
+function renderDocs(){
+  document.getElementById('docsGrid').innerHTML=DOCS.map(d=>`
+    <div class="dcard" onclick="toast('${d.name}')">
+      <div class="dcard-icon">${d.icon}</div>
+      <div class="dcard-name">${d.name}</div>
+      <div class="dcard-meta">${d.meta}</div>
+      <span class="dbadge">${d.badge}</span>
+    </div>`).join('');
+}
+function renderMsgs(){
+  document.getElementById('msgList').innerHTML=MSG_THREADS.map(m=>`
+    <div class="mprev ${m.id===activeThread?'active':''}" onclick="selectThread(${m.id})">
+      <div class="mpn">${m.n}${m.unread?'<span class="mpu"></span>':''}<span class="mpt">${m.time}</span></div>
+      <div class="mpp">${m.preview}</div>
+    </div>`).join('');
+  const th=MSG_THREADS.find(m=>m.id===activeThread);
+  document.getElementById('msgThreadTitle').innerHTML=`${th.n} · <span style="color:var(--muted);font-weight:400">${th.role}</span>`;
+  document.getElementById('msgBody').innerHTML=th.msgs.map(m=>`
+    <div class="mb ${m.who}"><div class="mc">${m.txt}</div><div class="mt">${m.time}</div></div>
+  `).join('');
+  document.getElementById('msgBody').scrollTop=document.getElementById('msgBody').scrollHeight;
+}
+function selectThread(id){activeThread=id;const th=MSG_THREADS.find(m=>m.id===id);if(th)th.unread=false;renderMsgs();}
+function sendMsg(){
+  const i=document.getElementById('msgInput'),txt=i.value.trim();if(!txt)return;
+  const th=MSG_THREADS.find(m=>m.id===activeThread);
+  th.msgs.push({who:'me',txt,time:'à l\'instant'});i.value='';renderMsgs();
+  setTimeout(()=>{th.msgs.push({who:'them',txt:LANG==='fr'?'Bien reçu Marie, je reviens vers vous très vite.':"Got it Marie, I'll get back to you shortly.",time:LANG==='fr'?"à l'instant":'just now'});renderMsgs();},1200);
+}
+
+function renderActivity(){
+  const items=[
+    {dot:'#f47920',html:`<strong>Jean-Paul</strong> ${t('act.1')} <strong>${t('act.1n')}</strong>`,time:t('act.h1')},
+    {dot:'#22c55e',html:`<strong>${t('act.2')} ${t('act.2n')}</strong> ${t('act.2x')}`,time:t('act.h2')},
+    {dot:'#3b82f6',html:`${t('act.3')} <strong>${t('act.3n')}</strong>`,time:t('act.h3')},
+    {dot:'#a855f7',html:`${t('act.4')} <strong>${t('act.4n')}</strong>`,time:t('act.h4')},
+  ];
+  document.getElementById('actFeed').innerHTML=items.map(a=>`
+    <div class="acti">
+      <div class="acti-dot" style="background:${a.dot}"></div>
+      <div><div class="acti-txt">${a.html}</div><div class="acti-time">${a.time}</div></div>
+    </div>`).join('');
+}
+
+/* ─────────────────────────  NAV / VIEWS  ───────────────────────── */
+function showView(id){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0);}
+function showHome(){showView('homeView');}
+function showLogin(){showView('loginView');}
+function showPortal(){showView('portalView');showTab('dash');}
+function showTab(id){
+  document.querySelectorAll('.ptab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab'+id.charAt(0).toUpperCase()+id.slice(1)).classList.add('active');
+  document.querySelectorAll('.pi').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));
+}
+function goTo(id){
+  if(!document.getElementById('homeView').classList.contains('active'))showHome();
+  const tryScroll=()=>{const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});};
+  document.getElementById('homeView').classList.contains('active')?tryScroll():setTimeout(tryScroll,50);
+}
+
+/* ─────────────────────────  AUTH (mock)  ───────────────────────── */
+function doLogin(){
+  const e=document.getElementById('loginEmail').value.trim(),p=document.getElementById('loginPwd').value.trim();
+  if(!e||!p){toast(t('login.err'));return;}
+  const name=e.split('@')[0].split(/[._-]/)[0];
+  const display=name.charAt(0).toUpperCase()+name.slice(1);
+  document.getElementById('ptUserName').textContent=display;
+  document.getElementById('ptAvatar').textContent=display.charAt(0).toUpperCase();
+  document.getElementById('welcomeName').textContent=display;
+  document.getElementById('loginPwd').value='';
+  showPortal();
+}
+function logout(){showHome();toast(LANG==='fr'?'Vous êtes déconnecté.':'You have been signed out.');}
+
+/* ─────────────────────────  MODAL & FORMS  ───────────────────────── */
+function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow='';
+  document.getElementById('qForm').style.display='block';document.getElementById('qSuccess').style.display='none';
+  ['fn','fp','fm'].forEach(x=>document.getElementById(x).value='');document.getElementById('fsel').selectedIndex=0;}
+async function submitQuote(){
+  const n=document.getElementById('fn').value.trim();
+  const p=document.getElementById('fp').value.trim();
+  const sel=document.getElementById('fsel');
+  const s=sel.selectedIndex;
+  if(!n||!p||s===0){toast(t('modal.err'));return;}
+
+  const btn=document.getElementById('fsubmitBtn');
+  const originalLabel=btn.textContent;
+  btn.disabled=true;btn.textContent='…';
+
+  document.getElementById('qForm').style.display='none';
+  document.getElementById('qSuccess').style.display='block';
+  setTimeout(()=>closeModal('qModal'),3000);
+  btn.disabled=false;btn.textContent=originalLabel;
+}
+document.getElementById('qModal').addEventListener('click',e=>{if(e.target.id==='qModal')closeModal('qModal');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal('qModal');});
+
+/* ─────────────────────────  MOBILE MENU  ───────────────────────── */
+function toggleMenu(){
+  const d=document.getElementById('mdrawer'),h=document.getElementById('mhamb');
+  const isOpen=d.classList.toggle('open');
+  h.classList.toggle('open',isOpen);
+  h.setAttribute('aria-expanded',isOpen);
+  document.body.style.overflow=isOpen?'hidden':'';
+}
+function closeMenu(){
+  const d=document.getElementById('mdrawer'),h=document.getElementById('mhamb');
+  d.classList.remove('open');h.classList.remove('open');
+  h.setAttribute('aria-expanded','false');document.body.style.overflow='';
+}
+
+/* ─────────────────────────  APP DOWNLOAD  ───────────────────────── */
+const APP_LINKS={
+  ios:'https://apps.apple.com/app/idXXXXXXXXX',
+  android:'https://play.google.com/store/apps/details?id=cd.henrica.construction'
+};
+function downloadApp(platform){
+  toast(t(platform==='ios'?'app.toast.ios':'app.toast.android'));
+  // When real apps are published, swap the toast for: window.open(APP_LINKS[platform],'_blank');
+}
+
+/* ─────────────────────────  TOAST  ───────────────────────── */
+let _tt;
+function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');clearTimeout(_tt);_tt=setTimeout(()=>el.classList.remove('show'),2600);}
+
+/* ─────────────────────────  INIT  ───────────────────────── */
+document.getElementById('msgInput')?.addEventListener('keydown',e=>{if(e.key==='Enter')sendMsg();});
+setLang('fr');
+renderPortalProjs();renderInvs();renderDocs();renderMsgs();renderActivity();
+</script>
+</body>
+</html>
