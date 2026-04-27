@@ -209,9 +209,37 @@ section{padding:86px 72px;scroll-margin-top:70px;}
 /* ── App section ────── */
 .app-sec{background:var(--navy);display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
 .app-content{padding:78px 72px;}
-.app-vis{background:var(--navy3);border-left:1px solid var(--border);display:flex;align-items:center;justify-content:center;padding:48px;position:relative;overflow:hidden;}
+.app-vis{background:var(--navy3);border-left:1px solid var(--border);display:flex;align-items:center;justify-content:center;padding:48px 32px;position:relative;overflow:hidden;}
 .app-vis::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(244,121,32,.1),transparent 70%);}
-.phone{width:192px;background:var(--navy3);border:2px solid rgba(255,255,255,.1);border-radius:28px;padding:13px 10px;box-shadow:0 48px 96px rgba(0,0,0,.5);position:relative;z-index:1;}
+.phone-stack{position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:520px;}
+.phone{width:192px;background:var(--navy3);border:2px solid rgba(255,255,255,.1);border-radius:28px;padding:13px 10px;box-shadow:0 48px 96px rgba(0,0,0,.5);position:absolute;transition:transform .4s ease,box-shadow .4s ease;}
+.phone.ph-back-l{transform:translateX(-110px) translateY(20px) rotate(-8deg) scale(.88);z-index:1;opacity:.92;}
+.phone.ph-front{z-index:3;transform:translateY(-6px);}
+.phone.ph-back-r{transform:translateX(110px) translateY(20px) rotate(8deg) scale(.88);z-index:1;opacity:.92;}
+.phone-stack:hover .phone.ph-back-l{transform:translateX(-130px) translateY(14px) rotate(-10deg) scale(.9);}
+.phone-stack:hover .phone.ph-back-r{transform:translateX(130px) translateY(14px) rotate(10deg) scale(.9);}
+.ph-msg{display:flex;flex-direction:column;gap:6px;margin-top:4px;}
+.ph-mb{padding:7px 9px;border-radius:5px;font-size:8px;line-height:1.4;max-width:82%;}
+.ph-mb.them{background:var(--navy2);color:rgba(255,255,255,.78);align-self:flex-start;border-bottom-left-radius:2px;}
+.ph-mb.me{background:rgba(244,121,32,.15);color:var(--white);border:1px solid rgba(244,121,32,.25);align-self:flex-end;border-bottom-right-radius:2px;}
+.ph-mb-t{font-size:7px;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-top:2px;}
+.ph-mb.me .ph-mb-t{text-align:right;}
+.ph-msg-head{display:flex;align-items:center;gap:6px;padding-bottom:7px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:7px;}
+.ph-msg-av{width:18px;height:18px;background:var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;color:var(--white);font-family:'Playfair Display',serif;}
+.ph-msg-n{font-size:8px;font-weight:600;color:var(--white);}
+.ph-msg-r{font-size:7px;color:#22c55e;display:flex;align-items:center;gap:3px;}
+.ph-msg-r::before{content:'';width:5px;height:5px;background:#22c55e;border-radius:50%;}
+.ph-inv{display:flex;flex-direction:column;gap:6px;margin-top:4px;}
+.ph-inv-row{display:flex;justify-content:space-between;align-items:center;background:var(--navy2);padding:7px 8px;border-radius:4px;border-left:2px solid var(--orange);}
+.ph-inv-row.paid{border-left-color:#22c55e;}
+.ph-inv-l{font-size:8px;color:var(--white);font-weight:600;}
+.ph-inv-s{font-size:7px;color:var(--muted);margin-top:2px;font-family:'JetBrains Mono',monospace;}
+.ph-inv-amt{font-size:9px;font-weight:700;color:var(--orange);font-family:'JetBrains Mono',monospace;}
+.ph-inv-amt.paid{color:#22c55e;}
+.ph-inv-tot{display:flex;justify-content:space-between;padding:8px 9px;background:rgba(244,121,32,.08);border:1px solid rgba(244,121,32,.2);border-radius:4px;margin-top:4px;}
+.ph-inv-tot-l{font-size:7px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);}
+.ph-inv-tot-v{font-size:10px;font-weight:700;color:var(--orange);font-family:'JetBrains Mono',monospace;}
+.ph-pay-btn{width:100%;background:var(--orange);color:var(--white);font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:8px;border:none;border-radius:4px;margin-top:4px;font-family:'Outfit',sans-serif;}
 .ph-pill{width:50px;height:5px;background:rgba(255,255,255,.08);border-radius:3px;margin:0 auto 11px;}
 .ph-body{background:var(--navy);border-radius:18px;padding:13px;min-height:300px;}
 .ph-sb{display:flex;justify-content:space-between;font-size:8px;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-bottom:11px;}
@@ -619,28 +647,96 @@ footer{background:var(--navy3);border-top:1px solid var(--border);padding:48px 7
       </div>
     </div>
     <div class="app-vis">
-      <div class="phone">
-        <div class="ph-pill"></div>
-        <div class="ph-body">
-          <div class="ph-sb"><span>9:41</span><span>●●● ▮</span></div>
-          <div class="ph-logo">
-            <svg width="13" height="13" viewBox="0 0 64 64"><rect width="64" height="64" rx="10" fill="#162347"/><path d="M16 14h6v15h20V14h6v36h-6V35H22v15h-6z" fill="#f47920"/></svg>
-            <span class="ph-logo-n">HENRICA</span>
-          </div>
-          <div class="ph-sec" data-i18n="ph.sec">PROJET ACTIF</div>
-          <div class="ph-proj">
-            <img class="ph-proj-img" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&q=80" alt="">
-            <div class="ph-proj-body">
-              <div class="ph-proj-n" data-i18n="ph.name">Villa Gombe — Lot 12</div>
-              <div class="ph-prog"><div class="ph-fill" style="width:67%"></div></div>
-              <div class="ph-pct">67%</div>
+      <div class="phone-stack">
+
+        <!-- LEFT: Messages screen -->
+        <div class="phone ph-back-l">
+          <div class="ph-pill"></div>
+          <div class="ph-body">
+            <div class="ph-sb"><span>9:41</span><span>●●● ▮</span></div>
+            <div class="ph-sec" data-i18n="ph2.sec">MESSAGERIE</div>
+            <div class="ph-msg-head">
+              <div class="ph-msg-av">JP</div>
+              <div style="flex:1">
+                <div class="ph-msg-n">Jean-Paul M.</div>
+                <div class="ph-msg-r" data-i18n="ph2.online">en ligne</div>
+              </div>
+            </div>
+            <div class="ph-msg">
+              <div class="ph-mb them">
+                <div data-i18n="ph2.m1">Bonjour Marie, le coulage est terminé ✓</div>
+                <div class="ph-mb-t">10:24</div>
+              </div>
+              <div class="ph-mb me">
+                <div data-i18n="ph2.m2">Super ! Quand pour le R+2 ?</div>
+                <div class="ph-mb-t">10:26</div>
+              </div>
+              <div class="ph-mb them">
+                <div data-i18n="ph2.m3">Lundi prochain. Photos envoyées.</div>
+                <div class="ph-mb-t">10:28</div>
+              </div>
             </div>
           </div>
-          <div class="ph-notif">
-            <div class="ph-nlbl" data-i18n="ph.notif">DERNIÈRE MISE À JOUR</div>
-            <div class="ph-ntxt" data-i18n="ph.notif.txt">Coulage dalle R+1 terminé. 24 nouvelles photos disponibles.</div>
+        </div>
+
+        <!-- CENTER: Project / progress screen (existing) -->
+        <div class="phone ph-front">
+          <div class="ph-pill"></div>
+          <div class="ph-body">
+            <div class="ph-sb"><span>9:41</span><span>●●● ▮</span></div>
+            <div class="ph-logo">
+              <svg width="13" height="13" viewBox="0 0 64 64"><rect width="64" height="64" rx="10" fill="#162347"/><path d="M16 14h6v15h20V14h6v36h-6V35H22v15h-6z" fill="#f47920"/></svg>
+              <span class="ph-logo-n">HENRICA</span>
+            </div>
+            <div class="ph-sec" data-i18n="ph.sec">PROJET ACTIF</div>
+            <div class="ph-proj">
+              <img class="ph-proj-img" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&q=80" alt="">
+              <div class="ph-proj-body">
+                <div class="ph-proj-n" data-i18n="ph.name">Villa Gombe — Lot 12</div>
+                <div class="ph-prog"><div class="ph-fill" style="width:67%"></div></div>
+                <div class="ph-pct">67%</div>
+              </div>
+            </div>
+            <div class="ph-notif">
+              <div class="ph-nlbl" data-i18n="ph.notif">DERNIÈRE MISE À JOUR</div>
+              <div class="ph-ntxt" data-i18n="ph.notif.txt">Coulage dalle R+1 terminé. 24 nouvelles photos disponibles.</div>
+            </div>
           </div>
         </div>
+
+        <!-- RIGHT: Invoices / payment screen -->
+        <div class="phone ph-back-r">
+          <div class="ph-pill"></div>
+          <div class="ph-body">
+            <div class="ph-sb"><span>9:41</span><span>●●● ▮</span></div>
+            <div class="ph-sec" data-i18n="ph3.sec">FACTURES</div>
+            <div class="ph-inv">
+              <div class="ph-inv-row paid">
+                <div>
+                  <div class="ph-inv-l" data-i18n="ph3.i1">Acompte fondations</div>
+                  <div class="ph-inv-s">FAC-2026-007</div>
+                </div>
+                <div class="ph-inv-amt paid">$8,400</div>
+              </div>
+              <div class="ph-inv-row">
+                <div>
+                  <div class="ph-inv-l" data-i18n="ph3.i2">Tranche dalle R+1</div>
+                  <div class="ph-inv-s" data-i18n="ph3.due">échéance 5 mai</div>
+                </div>
+                <div class="ph-inv-amt">$6,200</div>
+              </div>
+              <div class="ph-inv-tot">
+                <div>
+                  <div class="ph-inv-tot-l" data-i18n="ph3.tot">À RÉGLER</div>
+                  <div class="ph-inv-tot-v">$6,200</div>
+                </div>
+                <div style="font-size:18px">💳</div>
+              </div>
+              <button class="ph-pay-btn" data-i18n="ph3.pay">Payer maintenant</button>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -940,6 +1036,8 @@ const I18N={
     't3q':"Forage réalisé en moins d'une semaine, débit conforme. Service après-vente impeccable, intervention en 24h sur une fuite mineure.",'t3n':'Joseph Kabamba','t3r':'Particulier — Mont-Ngafula',
     'app.lbl':'APPLICATION CLIENT','app.ttl1':'Suivez votre projet','app.ttl2':'en temps réel','app.desc':"Notre portail client vous donne une visibilité totale : avancement des chantiers, factures, photos, messages avec votre chef de projet — partout, à tout moment.",'app.f1':"Suivi de l'avancement chantier en photos",'app.f2':'Factures et paiements sécurisés en ligne','app.f3':'Messagerie directe avec votre chef de projet','app.f4':'Accès à tous les documents du projet','app.cta':'Accéder au Portail →',
     'ph.sec':'PROJET ACTIF','ph.name':'Villa Gombe — Lot 12','ph.notif':'DERNIÈRE MISE À JOUR','ph.notif.txt':'Coulage dalle R+1 terminé. 24 nouvelles photos disponibles.',
+    'ph2.sec':'MESSAGERIE','ph2.online':'en ligne','ph2.m1':'Bonjour Marie, le coulage est terminé ✓','ph2.m2':'Super ! Quand pour le R+2 ?','ph2.m3':'Lundi prochain. Photos envoyées.',
+    'ph3.sec':'FACTURES','ph3.i1':'Acompte fondations','ph3.i2':'Tranche dalle R+1','ph3.due':'échéance 5 mai','ph3.tot':'À RÉGLER','ph3.pay':'Payer maintenant',
     'cta.lbl':"DÉMARREZ AUJOURD'HUI",'cta.ttl1':'Votre projet,','cta.ttl2':'notre engagement','cta.desc':"Parlons de votre projet. Devis gratuit, visite sur site, accompagnement de A à Z.",'cta.cta1':'Demander un Devis','cta.c1':'TÉLÉPHONE','cta.c2':'EMAIL','cta.c3':'SIÈGE','cta.c3v':'Av. de la Paix, Gombe<br>Kinshasa, RDC',
     'ft.tag':"« Construire avec confiance, bâtir pour l'avenir. » Votre partenaire construction depuis 2014.",'ft.c1':'SERVICES','ft.c2':'ENTREPRISE','ft.c3':'CONTACT','ft.addr':'📍 Gombe, Kinshasa, RDC','ft.rights':'Tous droits réservés.',
     'modal.ttl':'Demander un Devis','modal.sub':'Réponse sous 48h, sans engagement','modal.name':'Nom Complet','modal.phone':'Téléphone / WhatsApp','modal.svc':'Type de Service','modal.svc.def':'-- Choisir un service --','modal.msg':'Décrivez votre projet','modal.submit':'Envoyer ma Demande →','modal.ok.ttl':'Demande Envoyée !','modal.ok.msg':'Henrica Construction vous contactera dans les 48 heures.','modal.err':'Veuillez remplir tous les champs obligatoires.',
@@ -988,6 +1086,8 @@ const I18N={
     't3q':"Borehole completed in under a week, flow on spec. Aftercare is faultless, they responded in 24h to a minor leak.",'t3n':'Joseph Kabamba','t3r':'Homeowner — Mont-Ngafula',
     'app.lbl':'CLIENT APP','app.ttl1':'Track your project','app.ttl2':'in real time','app.desc':"Our client portal gives you full visibility: site progress, invoices, photos, messages with your project manager — anywhere, anytime.",'app.f1':'Site progress tracking with photos','app.f2':'Secure online invoices and payments','app.f3':'Direct messaging with your project manager','app.f4':'Access to all project documents','app.cta':'Open Portal →',
     'ph.sec':'ACTIVE PROJECT','ph.name':'Villa Gombe — Lot 12','ph.notif':'LATEST UPDATE','ph.notif.txt':'1st floor slab pour complete. 24 new photos available.',
+    'ph2.sec':'MESSAGES','ph2.online':'online','ph2.m1':'Hi Marie, slab pour is done ✓','ph2.m2':'Great! When for the 2nd floor?','ph2.m3':'Next Monday. Photos sent.',
+    'ph3.sec':'INVOICES','ph3.i1':'Foundation deposit','ph3.i2':'1st floor slab tranche','ph3.due':'due May 5','ph3.tot':'TO PAY','ph3.pay':'Pay now',
     'cta.lbl':'START TODAY','cta.ttl1':'Your project,','cta.ttl2':'our commitment','cta.desc':"Let's talk about your project. Free quote, on-site visit, full A-to-Z support.",'cta.cta1':'Get a Quote','cta.c1':'PHONE','cta.c2':'EMAIL','cta.c3':'HEAD OFFICE','cta.c3v':'Av. de la Paix, Gombe<br>Kinshasa, DRC',
     'ft.tag':'"Build with confidence, craft for the future." Your construction partner since 2014.','ft.c1':'SERVICES','ft.c2':'COMPANY','ft.c3':'CONTACT','ft.addr':'📍 Gombe, Kinshasa, DRC','ft.rights':'All rights reserved.',
     'modal.ttl':'Request a Quote','modal.sub':'Reply within 48h, no commitment','modal.name':'Full Name','modal.phone':'Phone / WhatsApp','modal.svc':'Service Type','modal.svc.def':'-- Choose a service --','modal.msg':'Describe your project','modal.submit':'Send My Request →','modal.ok.ttl':'Request Sent!','modal.ok.msg':'Henrica Construction will contact you within 48 hours.','modal.err':'Please fill in all required fields.',
